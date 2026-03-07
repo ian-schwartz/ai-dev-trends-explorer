@@ -28,16 +28,23 @@ const PREVIEW_WORKFLOWS: {
 
 export function WorkflowPreviewSection() {
   return (
-    <section className="border-b border-zinc-800/60 py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+    <section className="relative overflow-hidden border-b border-zinc-800/60 py-16 sm:py-20">
+      {/* Very subtle emerald glow behind workflow cards */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+      >
+        <div className="absolute left-1/2 top-1/2 h-[18rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/6 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 className="text-2xl font-semibold tracking-tight text-emerald-100">
           Workflow preview
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-400">
           Common AI development workflows: from pair programming to agent loops
           and UI-first prototyping.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>div:hover]:shadow-emerald-500/5">
           {PREVIEW_WORKFLOWS.map((workflow) => (
             <MiniWorkflow
               key={workflow.name}

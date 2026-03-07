@@ -14,16 +14,23 @@ export function FeaturedToolsSection() {
   const featuredTools = getFeaturedTools();
 
   return (
-    <section className="border-b border-zinc-800/60 py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
+    <section className="relative overflow-hidden border-b border-zinc-800/60 py-16 sm:py-20">
+      {/* Subtle blue radial glow */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        aria-hidden
+      >
+        <div className="absolute left-1/2 top-1/2 h-[20rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/8 blur-3xl" />
+      </div>
+      <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
+        <h2 className="text-2xl font-semibold tracking-tight text-blue-100">
           Featured AI Development Tools
         </h2>
         <p className="mt-2 text-zinc-400">
           Some of the most popular tools shaping the AI-native development
           workflow.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 [&>a:hover]:border-blue-500/25 [&>a:hover]:shadow-blue-500/10 [&>article:hover]:border-blue-500/25 [&>article:hover]:shadow-blue-500/10">
           {featuredTools.map((tool) => (
             <ToolCard key={tool.slug} tool={tool} />
           ))}
