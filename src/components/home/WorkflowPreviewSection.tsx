@@ -1,3 +1,21 @@
+import Link from "next/link";
+import { MiniWorkflow } from "@/components/workflows/MiniWorkflow";
+
+const PREVIEW_WORKFLOWS: { name: string; steps: string[] }[] = [
+  {
+    name: "AI Pair Programming",
+    steps: ["Prompt", "Generate", "Review", "Refactor"],
+  },
+  {
+    name: "Agent Loop",
+    steps: ["Goal", "Plan", "Edit", "Run", "Fix"],
+  },
+  {
+    name: "UI-First Prototyping",
+    steps: ["Generate UI", "Refine", "Connect Data", "Polish"],
+  },
+];
+
 export function WorkflowPreviewSection() {
   return (
     <section className="border-b border-zinc-800/60 py-16 sm:py-20">
@@ -6,19 +24,25 @@ export function WorkflowPreviewSection() {
           Workflow preview
         </h2>
         <p className="mt-2 text-zinc-400">
-          Placeholder — workflow visuals (pair programming, agent loop, etc.) in Milestone 3.
+          Common AI development workflows: from pair programming to agent loops
+          and UI-first prototyping.
         </p>
-        <div className="mt-8 flex flex-wrap gap-4">
-          {["AI pair programming", "Agent loop", "UI-first prototyping", "Refactor/test loop"].map(
-            (label) => (
-              <div
-                key={label}
-                className="rounded-lg border border-zinc-800 bg-zinc-900/50 px-4 py-3 text-sm text-zinc-400"
-              >
-                {label}
-              </div>
-            )
-          )}
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {PREVIEW_WORKFLOWS.map((workflow) => (
+            <MiniWorkflow
+              key={workflow.name}
+              name={workflow.name}
+              steps={workflow.steps}
+            />
+          ))}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/workflows"
+            className="inline-flex items-center justify-center rounded-lg border border-zinc-600 bg-transparent px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-zinc-500 hover:bg-zinc-800/50"
+          >
+            View All Workflows
+          </Link>
         </div>
       </div>
     </section>
