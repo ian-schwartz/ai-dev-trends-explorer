@@ -31,7 +31,7 @@ export function FeaturedToolsSection() {
         <div className="mt-8 flex justify-center">
           <Link
             href="/tools"
-            className="inline-flex items-center justify-center rounded-lg border border-zinc-600 bg-transparent px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-zinc-500 hover:bg-zinc-800/50"
+            className="inline-flex items-center justify-center rounded-lg border border-zinc-600 bg-transparent px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-violet-500/50 hover:bg-violet-500/5"
           >
             View All Tools
           </Link>

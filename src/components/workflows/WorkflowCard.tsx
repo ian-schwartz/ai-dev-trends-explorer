@@ -50,7 +50,7 @@ function Connector() {
 export function WorkflowCard({ workflow }: WorkflowCardProps) {
   return (
     <motion.article
-      className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 transition-colors hover:border-zinc-700"
+      className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 shadow-sm transition-all duration-200 hover:border-violet-500/20 hover:shadow-md hover:shadow-violet-500/5"
       data-workflow-slug={workflow.slug}
       initial={{ opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}

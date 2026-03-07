@@ -51,7 +51,7 @@ export function CompareSelector({
               const tool = slug ? tools.find((t) => t.slug === slug) ?? null : null;
               onSelectionChange(index, tool);
             }}
-            className="w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-2 text-sm text-foreground focus:border-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-600"
+            className="w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-2 text-sm text-foreground focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/30"
           >
             <option value="">Select a tool...</option>
             {getOptionsForSlot(index).map((tool) => (

@@ -34,7 +34,7 @@ export function ToolFilters({ filters, onFiltersChange }: ToolFiltersProps) {
           placeholder="Search by name..."
           value={filters.search}
           onChange={(e) => update({ search: e.target.value.trimStart() })}
-          className="w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-2 text-sm text-foreground placeholder-zinc-500 focus:border-zinc-600 focus:outline-none focus:ring-1 focus:ring-zinc-600 sm:max-w-xs"
+          className="w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-2 text-sm text-foreground placeholder-zinc-500 focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/30 sm:max-w-xs"
           aria-label="Search tools by name"
         />
         <div className="flex flex-wrap items-center gap-3">
@@ -66,7 +66,7 @@ export function ToolFilters({ filters, onFiltersChange }: ToolFiltersProps) {
             onClick={() => update({ category: value })}
             className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors ${
               filters.category === value
-                ? "border-zinc-600 bg-zinc-700 text-foreground"
+                ? "border-violet-500/40 bg-violet-500/10 text-violet-200"
                 : "border-zinc-800 bg-zinc-900/80 text-zinc-400 hover:border-zinc-700 hover:text-zinc-300"
             }`}
           >

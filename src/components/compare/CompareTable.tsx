@@ -8,6 +8,14 @@ const categoryLabels: Record<ToolItem["category"], string> = {
   "terminal-tool": "Terminal tool",
 };
 
+const categoryColors: Record<ToolItem["category"], string> = {
+  "ai-ide": "text-blue-400",
+  "coding-agent": "text-violet-400",
+  "ui-generator": "text-emerald-400",
+  "assistant": "text-amber-400",
+  "terminal-tool": "text-cyan-400",
+};
+
 interface CompareTableProps {
   tools: ToolItem[];
 }
@@ -40,7 +48,14 @@ export function CompareTable({ tools }: CompareTableProps) {
   }
 
   const rows: { label: string; render: (t: ToolItem) => React.ReactNode }[] = [
-    { label: "Category", render: (t) => categoryLabels[t.category] },
+    {
+      label: "Category",
+      render: (t) => (
+        <span className={categoryColors[t.category]}>
+          {categoryLabels[t.category]}
+        </span>
+      ),
+    },
     { label: "Trend", render: (t) => t.trend },
     {
       label: "Best use cases",
@@ -73,7 +88,7 @@ export function CompareTable({ tools }: CompareTableProps) {
   ];
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-zinc-800">
+    <div className="overflow-x-auto rounded-lg border border-zinc-800 shadow-sm">
       <table className="w-full min-w-[32rem] border-collapse text-left">
         <thead>
           <tr className="border-b border-zinc-800">
@@ -83,7 +98,7 @@ export function CompareTable({ tools }: CompareTableProps) {
             {tools.map((tool) => (
               <th
                 key={tool.slug}
-                className="bg-zinc-900/80 px-4 py-3 text-sm font-semibold text-foreground"
+                className="border-l border-zinc-800/80 bg-zinc-900/80 px-4 py-3 text-sm font-semibold text-foreground"
               >
                 {tool.name}
               </th>

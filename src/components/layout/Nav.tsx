@@ -13,7 +13,7 @@ export function Nav() {
       <nav className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link
           href="/"
-          className="text-lg font-semibold tracking-tight text-foreground hover:text-zinc-300 transition-colors"
+          className="text-lg font-semibold tracking-tight text-foreground transition-colors hover:text-violet-300"
         >
           AI Dev Trends Explorer
         </Link>
@@ -22,7 +22,7 @@ export function Nav() {
             <li key={href}>
               <Link
                 href={href}
-                className="text-sm font-medium text-zinc-400 hover:text-foreground transition-colors"
+                className="text-sm font-medium text-zinc-400 transition-colors hover:text-violet-300"
               >
                 {label}
               </Link>
