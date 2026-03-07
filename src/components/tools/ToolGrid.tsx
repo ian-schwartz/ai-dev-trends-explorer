@@ -1,7 +1,11 @@
-import { tools } from "@/data/tools";
+import type { ToolItem } from "@/types/tool";
 import { ToolCard } from "./ToolCard";
 
-export function ToolGrid() {
+interface ToolGridProps {
+  tools: ToolItem[];
+}
+
+export function ToolGrid({ tools }: ToolGridProps) {
   return (
     <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {tools.map((tool) => (
