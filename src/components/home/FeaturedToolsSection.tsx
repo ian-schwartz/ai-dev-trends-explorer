@@ -1,25 +1,40 @@
+import Link from "next/link";
+import { tools } from "@/data/tools";
+import { ToolCard } from "@/components/tools/ToolCard";
+
+function getFeaturedTools() {
+  return tools
+    .filter(
+      (t) => t.trend === "rising" || t.trend === "established"
+    )
+    .slice(0, 3);
+}
+
 export function FeaturedToolsSection() {
+  const featuredTools = getFeaturedTools();
+
   return (
     <section className="border-b border-zinc-800/60 py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-          Featured tools
+          Featured AI Development Tools
         </h2>
         <p className="mt-2 text-zinc-400">
-          Placeholder — tool cards and filtering coming in Milestone 2.
+          Some of the most popular tools shaping the AI-native development
+          workflow.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <div
-              key={i}
-              className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-6"
-              aria-hidden
-            >
-              <div className="h-4 w-24 rounded bg-zinc-700" />
-              <div className="mt-3 h-3 w-full rounded bg-zinc-800" />
-              <div className="mt-2 h-3 w-4/5 rounded bg-zinc-800" />
-            </div>
+          {featuredTools.map((tool) => (
+            <ToolCard key={tool.slug} tool={tool} />
           ))}
+        </div>
+        <div className="mt-8 flex justify-center">
+          <Link
+            href="/tools"
+            className="inline-flex items-center justify-center rounded-lg border border-zinc-600 bg-transparent px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:border-zinc-500 hover:bg-zinc-800/50"
+          >
+            View All Tools
+          </Link>
         </div>
       </div>
     </section>
