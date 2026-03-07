@@ -1,0 +1,56 @@
+# Project Rules — AI Dev Trends Explorer
+
+## Tech Stack
+- Next.js (App Router)
+- TypeScript
+- Tailwind CSS
+- Framer Motion for animations
+- Lucide React for icons
+- Frontend only (no backend or database for v1)
+
+## Architecture Guidelines
+- Use src/ directory structure
+- Prefer small reusable components
+- Components should be organized by feature folder
+- Keep pages minimal and delegate UI to components
+- Use strongly typed data structures
+
+## Data Strategy
+- Use static local data for tools, workflows, and trends
+- Store data under src/data/
+- Avoid APIs or external services in v1
+
+## UI Guidelines
+- Dark modern design
+- Clean spacing and strong hierarchy
+- Use subtle animations only when useful
+- Avoid flashy or excessive motion
+- Mobile responsive by default
+
+## Code Style
+- TypeScript strict typing preferred
+- Prefer functional React components
+- Avoid unnecessary dependencies
+- Keep code readable and modular
+
+## Workflow Expectations
+When implementing features:
+
+1. Keep changes scoped
+2. Do not rewrite unrelated files
+3. Follow existing architecture
+4. Run lint and build after major changes
+
+## Commands
+
+Run development server:
+
+npm run dev
+
+Run lint:
+
+npm run lint
+
+Verify production build:
+
+npm run build
