@@ -32,7 +32,7 @@ export const tools: ToolItem[] = [
     repoAware: true,
     terminalAccess: true,
     website: "https://cursor.com",
-    whyItMatters: "Widely used AI IDE; sets expectations for in-editor completion and multi-file edits.",
+    whyItMatters: "Widely used AI IDE. It sets expectations for in-editor completion and multi-file edits.",
   },
   {
     slug: "claude-code",
@@ -52,7 +52,7 @@ export const tools: ToolItem[] = [
       "Good at docs, tests, and systematic refactors",
     ],
     weaknesses: [
-      "Not a full IDE; you bring your own editor",
+      "Not a full IDE. You bring your own editor.",
       "API/CLI usage requires some setup",
       "No built-in project UI or file tree",
     ],
@@ -83,7 +83,7 @@ export const tools: ToolItem[] = [
       "Stable API for product integration",
     ],
     weaknesses: [
-      "Not sold as a standalone product; accessed via Copilot or API",
+      "Not sold as a standalone product. It is accessed via Copilot or API.",
       "Less emphasis on long, multi-step reasoning",
       "Context and control are dictated by the host product",
     ],
@@ -101,7 +101,7 @@ export const tools: ToolItem[] = [
     name: "v0",
     category: "ui-generator",
     summary:
-      "Vercel's AI UI generator. Produces React (and Tailwind) components from text or sketches; integrates with the Vercel stack.",
+      "Vercel's AI UI generator. It produces React (and Tailwind) components from text or sketches and integrates with the Vercel stack.",
     bestFor: [
       "Front-end and landing page prototypes",
       "Design-to-code and UI exploration",
@@ -109,12 +109,12 @@ export const tools: ToolItem[] = [
     ],
     strengths: [
       "High-quality React and Tailwind output",
-      "Iterate with chat; good for layout and components",
+      "You can iterate with chat. It works well for layout and components.",
       "Fits Vercel deployment and Next.js workflows",
       "Useful for design systems and UI patterns",
     ],
     weaknesses: [
-      "Focused on UI; not for backend or full-app logic",
+      "Focused on UI. It is not for backend or full-app logic.",
       "Tied to React/Vercel ecosystem",
       "Complex state or behavior often needs hand-editing",
     ],
@@ -145,7 +145,7 @@ export const tools: ToolItem[] = [
       "Active development and feature parity push",
     ],
     weaknesses: [
-      "Newer than Cursor; fewer integrations and polish",
+      "Newer than Cursor. It has fewer integrations and less polish.",
       "Some workflows and shortcuts differ from VS Code",
       "Documentation and community still growing",
     ],
@@ -170,7 +170,7 @@ export const tools: ToolItem[] = [
       "Replit-based projects and deployments",
     ],
     strengths: [
-      "No local install; works in browser",
+      "No local install. It works in the browser.",
       "Tight loop with Replit run/deploy",
       "Good for explanations and learning",
       "Simple subscription inside Replit",
@@ -206,9 +206,9 @@ export const tools: ToolItem[] = [
       "Designed for full-task ownership, not just suggestions",
     ],
     weaknesses: [
-      "Access is limited; not broadly available",
+      "Access is limited. It is not broadly available.",
       "Autonomous actions require oversight and guardrails",
-      "Best for bounded tasks; complex product decisions need humans",
+      "Best for bounded tasks. Complex product decisions still need humans.",
     ],
     tags: ["agent", "autonomous", "cognition", "planning", "debugging"],
     trend: "experimental",
@@ -224,14 +224,14 @@ export const tools: ToolItem[] = [
     name: "OpenHands",
     category: "coding-agent",
     summary:
-      "OpenHands (formerly OpenDevin). Open-source autonomous coding agent inspired by Devin. Runs locally or in your infra; sandboxed execution and extensible workflow.",
+      "OpenHands (formerly OpenDevin). Open-source autonomous coding agent inspired by Devin. It runs locally or in your infra with sandboxed execution and an extensible workflow.",
     bestFor: [
       "Self-hosted or air-gapped agent workflows",
       "Research and customization of agent behavior",
       "Teams that need full control over tools and data",
     ],
     strengths: [
-      "Open source; no vendor lock-in",
+      "Open source with no vendor lock-in.",
       "Local and private deployment",
       "Extensible tools and prompts",
       "Active community and research alignment",
@@ -255,7 +255,7 @@ export const tools: ToolItem[] = [
     name: "OpenClaw",
     category: "coding-agent",
     summary:
-      "Open-source AI agent platform that runs locally. Gateway-centric orchestration with tool use, shell execution, and browser control; supports coding tasks and automation.",
+      "Open-source AI agent platform that runs locally. Gateway-centric orchestration with tool use, shell execution, and browser control. It supports coding tasks and automation.",
     bestFor: [
       "Experimentation with agentic coding workflows",
       "Teams exploring open-source agent options",
@@ -263,11 +263,11 @@ export const tools: ToolItem[] = [
     ],
     strengths: [
       "Open source and extensible",
-      "Many built-in tools; supports skill extensions",
-      "Runs on your own devices; supports multiple model backends",
+      "Many built-in tools. It supports skill extensions.",
+      "Runs on your own devices and supports multiple model backends.",
     ],
     weaknesses: [
-      "Early stage; documentation and patterns still evolving",
+      "Early stage. Documentation and patterns are still evolving.",
       "Requires setup and environment configuration",
       "Best for developers comfortable with CLI and config",
     ],
@@ -285,7 +285,7 @@ export const tools: ToolItem[] = [
     name: "GitHub Copilot",
     category: "assistant",
     summary:
-      "GitHub's AI pair programmer. Inline completion and chat in the editor, powered by OpenAI models; integrates with VS Code, JetBrains, and Neovim.",
+      "GitHub's AI pair programmer. Inline completion and chat in the editor, powered by OpenAI models. It integrates with VS Code, JetBrains, and Neovim.",
     bestFor: [
       "Inline code completion in familiar IDEs",
       "Teams already on GitHub wanting integrated AI",
@@ -297,7 +297,7 @@ export const tools: ToolItem[] = [
       "Subscription bundles with GitHub",
     ],
     weaknesses: [
-      "Completion-focused; less emphasis on multi-file or agent workflows",
+      "Completion-focused. It has less emphasis on multi-file or agent workflows.",
       "Model and behavior tied to GitHub's offering",
       "Privacy and data use depend on GitHub policies",
     ],
@@ -329,7 +329,7 @@ export const tools: ToolItem[] = [
     weaknesses: [
       "Smaller extension ecosystem than VS Code",
       "AI features depend on integrations",
-      "Newer than established IDEs; some workflows still evolving",
+      "Newer than established IDEs. Some workflows are still evolving.",
     ],
     tags: ["ide", "native", "performance", "collaboration"],
     trend: "rising",
@@ -345,7 +345,7 @@ export const tools: ToolItem[] = [
     name: "Tabnine",
     category: "assistant",
     summary:
-      "AI code completion that runs locally or in the cloud. Supports many languages and IDEs; emphasizes privacy and team customization.",
+      "AI code completion that runs locally or in the cloud. It supports many languages and IDEs and emphasizes privacy and team customization.",
     bestFor: [
       "Teams that need on-prem or private completion",
       "Polyglot codebases and many IDEs",
@@ -375,19 +375,19 @@ export const tools: ToolItem[] = [
     name: "Aider",
     category: "terminal-tool",
     summary:
-      "Terminal-based AI pair programmer. Uses LLMs to edit code in your repo via git-aware diffs; works with any editor.",
+      "Terminal-based AI pair programmer. It uses LLMs to edit code in your repo via git-aware diffs and works with any editor.",
     bestFor: [
       "Terminal-centric and editor-agnostic workflows",
       "Git-based code edits with clear diffs",
       "Scripting and automation of AI-assisted edits",
     ],
     strengths: [
-      "Works with any editor; no lock-in",
-      "Git-integrated; produces clean patches",
+      "Works with any editor with no lock-in.",
+      "Git-integrated and produces clean patches.",
       "CLI and scriptable",
     ],
     weaknesses: [
-      "No built-in IDE UI; you drive from the terminal",
+      "No built-in IDE UI. You drive it from the terminal.",
       "Model and API setup required",
       "Best for developers comfortable with CLI",
     ],
@@ -417,8 +417,8 @@ export const tools: ToolItem[] = [
       "Collaboration and shared workflows",
     ],
     weaknesses: [
-      "Mac-first; Linux and Windows support evolving",
-      "Proprietary; not a drop-in for every workflow",
+      "Mac-first. Linux and Windows support is still evolving.",
+      "Proprietary. It is not a drop-in for every workflow.",
       "AI is supplementary, not a full coding agent",
     ],
     tags: ["terminal", "cli", "productivity", "ai-assist"],
@@ -435,7 +435,7 @@ export const tools: ToolItem[] = [
     name: "Builder.io",
     category: "ui-generator",
     summary:
-      "Visual and AI-driven page and component builder. Design or describe UI and get code; integrates with React, Next.js, and other frameworks.",
+      "Visual and AI-driven page and component builder. Design or describe UI and get code. It integrates with React, Next.js, and other frameworks.",
     bestFor: [
       "Marketing and landing pages with a visual layer",
       "Designer–developer handoff and iteration",
@@ -479,7 +479,7 @@ export const tools: ToolItem[] = [
     weaknesses: [
       "Execution in your environment requires care",
       "Best for users who can validate and constrain usage",
-      "Not a full IDE; focused on execution and automation",
+      "Not a full IDE. It is focused on execution and automation.",
     ],
     tags: ["open-source", "interpreter", "automation", "local"],
     trend: "rising",
@@ -488,6 +488,6 @@ export const tools: ToolItem[] = [
     repoAware: true,
     terminalAccess: true,
     website: "https://openinterpreter.com",
-    whyItMatters: "Lets LLMs run code in a controlled environment; bridges chat and execution.",
+    whyItMatters: "Lets LLMs run code in a controlled environment. It bridges chat and execution.",
   },
 ];

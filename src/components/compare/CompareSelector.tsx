@@ -53,7 +53,7 @@ export function CompareSelector({
             }}
             className="w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-2 text-sm text-foreground focus:border-cyan-500/50 focus:outline-none focus:ring-1 focus:ring-cyan-500/30"
           >
-            <option value="">Select a tool...</option>
+            <option value="">Select a tool</option>
             {getOptionsForSlot(index).map((tool) => (
               <option key={tool.slug} value={tool.slug}>
                 {tool.name} ({categoryLabels[tool.category]})

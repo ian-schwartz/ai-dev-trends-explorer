@@ -7,7 +7,7 @@ export const workflows: Workflow[] = [
     description:
       "A human-guided workflow where the developer stays in control while the AI helps implement, explain, and refine code.",
     whenToUse:
-      "Best for everyday feature work, bug fixes, and targeted improvements.",
+      "This workflow is best for everyday feature work, bug fixes, and targeted improvements.",
     maturityLevel: "beginner",
     relatedTools: ["Cursor", "Claude Code", "Codex"],
     steps: [
@@ -25,7 +25,7 @@ export const workflows: Workflow[] = [
     description:
       "A higher-autonomy workflow where the developer defines the goal and the agent plans, edits files, runs commands, and iterates.",
     whenToUse:
-      "Best for larger scoped tasks, multi-file updates, and implementation loops.",
+      "This workflow is best for larger scoped tasks, multi-file updates, and implementation loops.",
     maturityLevel: "advanced",
     relatedTools: ["Codex", "Claude Code", "OpenHands", "OpenClaw"],
     steps: [
@@ -44,7 +44,7 @@ export const workflows: Workflow[] = [
     description:
       "Start from generated interface concepts, then convert them into a clean component structure and wire them into real data.",
     whenToUse:
-      "Best for landing pages, dashboards, internal tools, and frontend experiments.",
+      "This workflow is best for landing pages, dashboards, internal tools, and frontend experiments.",
     maturityLevel: "beginner",
     relatedTools: ["v0", "Cursor", "Codex"],
     steps: [
@@ -61,7 +61,7 @@ export const workflows: Workflow[] = [
     description:
       "Use AI to understand existing code, restructure it safely, and validate behavior before merging.",
     whenToUse:
-      "Best for cleanup, maintainability improvements, migration work, and reducing complexity.",
+      "This workflow is best for cleanup, maintainability improvements, migration work, and reducing complexity.",
     maturityLevel: "intermediate",
     relatedTools: ["Cursor", "Claude Code", "Codex"],
     steps: [

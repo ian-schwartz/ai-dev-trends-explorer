@@ -15,7 +15,7 @@ export const trends: TrendItem[] = [
     title: "Agentic coding loops",
     status: "rising",
     summary:
-      "Agents that plan, edit, run, and fix in a loop are moving from research to early product. Best for bounded tasks; human review still recommended.",
+      "Agents that plan, edit, run, and fix in a loop are moving from research to early product. This approach works best for bounded tasks. Human review is still recommended.",
     relatedTools: ["Devin", "OpenHands", "OpenClaw"],
     signalLabel: "Early product",
   },
@@ -32,7 +32,7 @@ export const trends: TrendItem[] = [
     title: "Prompt-to-app UI generation",
     status: "rising",
     summary:
-      "Describe a screen or flow and get React or other UI code. Speeds up prototyping and landing pages; hand-off to backend and state still common.",
+      "Describe a screen or flow and get React or other UI code. It speeds up prototyping and landing pages. Hand-off to backend and state is still common.",
     relatedTools: ["v0", "Builder.io"],
     signalLabel: "Strong for greenfield UI",
   },
@@ -41,7 +41,7 @@ export const trends: TrendItem[] = [
     title: "Autonomous software engineers",
     status: "experimental",
     summary:
-      "Agents that own full tasks end-to-end are in limited access. High variance; best for well-scoped work and teams that can supervise and correct.",
+      "Agents that own full tasks end-to-end are in limited access. Results vary. This approach works best for well-scoped work and teams that can supervise and correct.",
     relatedTools: ["Devin", "OpenHands", "OpenClaw"],
     signalLabel: "Limited access",
   },

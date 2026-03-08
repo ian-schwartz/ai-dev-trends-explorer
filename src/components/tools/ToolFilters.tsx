@@ -31,7 +31,7 @@ export function ToolFilters({ filters, onFiltersChange }: ToolFiltersProps) {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <input
           type="search"
-          placeholder="Search by name..."
+          placeholder="Search by name"
           value={filters.search}
           onChange={(e) => update({ search: e.target.value.trimStart() })}
           className="w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-3 py-2 text-sm text-foreground placeholder-zinc-500 focus:border-violet-500/50 focus:outline-none focus:ring-1 focus:ring-violet-500/30 sm:max-w-xs"
