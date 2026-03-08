@@ -32,7 +32,7 @@ export function HeroSection() {
           AI-assisted software development.
         </p>
         <p className="mx-auto mt-3 text-sm text-zinc-500">
-          Tools directory • practical workflows • ecosystem signals
+          Tools Directory • Practical Workflows • Ecosystem Signals
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Link

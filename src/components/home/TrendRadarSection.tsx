@@ -9,7 +9,7 @@ export function TrendRadarSection() {
           Trend radar
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-400">
-          Key movements in the AI developer ecosystem: where the market is
+          Key movements in the AI developer ecosystem. Where the market is
           heading and what to watch.
         </p>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

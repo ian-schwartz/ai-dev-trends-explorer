@@ -22,11 +22,10 @@ export function WorkflowPreviewSection() {
       </div>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
         <h2 className="text-2xl font-semibold tracking-tight text-foreground">
-          Workflow preview
+          Workflow Preview
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-400">
-          Practical AI-assisted development workflows: from pair programming and
-          agent loops to UI-first prototyping and refactor-and-validate.
+          Practical AI-assisted development workflows including pair programming, agent loops, UI-first prototyping, and refactor and test validation.
         </p>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>div:hover]:shadow-emerald-500/5">
           {previewWorkflows.map((workflow) => (

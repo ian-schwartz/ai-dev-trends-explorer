@@ -26,7 +26,7 @@ const statusLabels: Record<TrendStatus, string> = {
   rising: "rising",
   established: "established",
   experimental: "experimental",
-  overhyped: "Use with caution",
+  overhyped: "use with caution",
 };
 
 interface TrendRadarCardProps {
