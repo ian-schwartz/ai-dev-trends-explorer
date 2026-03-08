@@ -26,4 +26,5 @@ export interface ToolItem {
   repoAware: boolean;
   terminalAccess: boolean;
   website?: string;
+  whyItMatters?: string;
 }

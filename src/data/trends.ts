@@ -7,7 +7,7 @@ export const trends: TrendItem[] = [
     status: "established",
     summary:
       "Editors built around LLMs and project context are becoming the default for many developers. Inline completion, chat, and multi-file edits in one place.",
-    relatedTools: ["Cursor", "Windsurf"],
+    relatedTools: ["Cursor", "Windsurf", "Zed"],
     signalLabel: "Default for early adopters",
   },
   {
@@ -25,7 +25,7 @@ export const trends: TrendItem[] = [
     status: "established",
     summary:
       "Assistants that index and reason over full codebases are table stakes. Long context and RAG over repo structure improve suggestion quality.",
-    relatedTools: ["Cursor", "Claude Code", "Windsurf"],
+    relatedTools: ["Cursor", "Claude Code", "Windsurf", "GitHub Copilot", "Tabnine"],
   },
   {
     slug: "prompt-to-app-ui",
@@ -33,7 +33,7 @@ export const trends: TrendItem[] = [
     status: "rising",
     summary:
       "Describe a screen or flow and get React or other UI code. Speeds up prototyping and landing pages; hand-off to backend and state still common.",
-    relatedTools: ["v0"],
+    relatedTools: ["v0", "Builder.io"],
     signalLabel: "Strong for greenfield UI",
   },
   {
@@ -51,7 +51,7 @@ export const trends: TrendItem[] = [
     status: "overhyped",
     summary:
       "Relying on AI output without review is risky for production. Best practice: treat suggestions as drafts and keep human review in the loop.",
-    relatedTools: ["Cursor", "Claude Code", "Replit Ghostwriter"],
+    relatedTools: ["Cursor", "Claude Code", "Replit Ghostwriter", "GitHub Copilot"],
     signalLabel: "Use with caution",
   },
 ];

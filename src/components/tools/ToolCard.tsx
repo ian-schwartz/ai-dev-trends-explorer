@@ -76,6 +76,11 @@ export function ToolCard({ tool }: ToolCardProps) {
       <p className="mt-4 line-clamp-3 text-sm leading-relaxed text-zinc-400">
         {tool.summary}
       </p>
+      {tool.whyItMatters != null && (
+        <p className="mt-2 text-xs text-zinc-500">
+          {tool.whyItMatters}
+        </p>
+      )}
 
       <div className="mt-4 flex flex-wrap gap-2 border-t border-zinc-800/80 pt-4">
         {tool.tags.slice(0, 5).map((tag) => (
