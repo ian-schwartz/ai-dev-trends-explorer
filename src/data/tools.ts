@@ -242,4 +242,33 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://opendevin.github.io",
   },
+  {
+    slug: "openclaw",
+    name: "OpenClaw",
+    category: "coding-agent",
+    summary:
+      "Open-source AI agent platform that runs locally. Gateway-centric orchestration with tool use, shell execution, and browser control; supports coding tasks and automation.",
+    bestFor: [
+      "Experimentation with agentic coding workflows",
+      "Teams exploring open-source agent options",
+      "Local or self-hosted automation and coding assistance",
+    ],
+    strengths: [
+      "Open source and extensible",
+      "Many built-in tools; supports skill extensions",
+      "Runs on your own devices; supports multiple model backends",
+    ],
+    weaknesses: [
+      "Early stage; documentation and patterns still evolving",
+      "Requires setup and environment configuration",
+      "Best for developers comfortable with CLI and config",
+    ],
+    tags: ["agent", "open-source", "tools", "automation", "emerging"],
+    trend: "rising",
+    beginnerFriendly: false,
+    productionFriendly: false,
+    repoAware: true,
+    terminalAccess: true,
+    website: "https://openclaws.io",
+  },
 ];
