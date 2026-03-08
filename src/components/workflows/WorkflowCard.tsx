@@ -29,7 +29,7 @@ function StepCard({
     <motion.div
       className="w-full min-w-0 rounded-lg border border-zinc-700/80 bg-zinc-800/60 px-3 py-2.5 shadow-sm transition-all duration-200 hover:border-zinc-600 hover:bg-zinc-800/80 sm:min-h-[4rem] sm:min-w-[8rem] sm:max-w-[12rem] sm:w-auto"
       data-step={stepIndex + 1}
-      initial={{ opacity: 0, y: 10 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{
         delay: stepIndex * 0.06,
@@ -52,7 +52,7 @@ export function WorkflowCard({ workflow }: WorkflowCardProps) {
     <motion.article
       className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-violet-500/20 hover:shadow-md hover:shadow-zinc-900/20 sm:p-5"
       data-workflow-slug={workflow.slug}
-      initial={{ opacity: 0, y: 8 }}
+      initial={false}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
