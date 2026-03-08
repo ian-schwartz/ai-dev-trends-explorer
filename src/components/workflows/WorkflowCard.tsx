@@ -27,7 +27,7 @@ function StepCard({
 }) {
   return (
     <motion.div
-      className="w-full min-w-0 rounded-lg border border-zinc-700/80 bg-zinc-800/60 px-3 py-2.5 shadow-sm transition-all duration-200 hover:border-zinc-600 hover:bg-zinc-800/80 sm:min-w-[8rem] sm:max-w-[12rem] sm:w-auto"
+      className="w-full min-w-0 rounded-lg border border-zinc-700/80 bg-zinc-800/60 px-3 py-2.5 shadow-sm transition-all duration-200 hover:border-zinc-600 hover:bg-zinc-800/80 sm:min-h-[4rem] sm:min-w-[8rem] sm:max-w-[12rem] sm:w-auto"
       data-step={stepIndex + 1}
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
@@ -40,7 +40,7 @@ function StepCard({
       <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
         {step.title}
       </p>
-      <p className="mt-0.5 line-clamp-2 text-sm text-zinc-400">
+      <p className="mt-0.5 text-sm leading-relaxed text-zinc-400">
         {step.description}
       </p>
     </motion.div>

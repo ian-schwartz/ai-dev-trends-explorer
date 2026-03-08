@@ -12,7 +12,7 @@ export function MiniWorkflow({ name, description, steps }: MiniWorkflowProps) {
       <h3 className="text-base font-semibold tracking-tight text-foreground">
         {name}
       </h3>
-      <p className="mt-2 min-h-[3.75rem] line-clamp-3 text-sm leading-relaxed text-zinc-400">
+      <p className="mt-2 text-sm leading-relaxed text-zinc-400">
         {description}
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2.5">
