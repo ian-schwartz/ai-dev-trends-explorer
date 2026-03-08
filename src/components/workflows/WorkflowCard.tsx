@@ -47,32 +47,6 @@ function StepCard({
   );
 }
 
-function ConnectorHorizontal() {
-  return (
-    <div
-      className="hidden shrink-0 items-center gap-0.5 sm:flex"
-      aria-hidden
-    >
-      <span className="h-px w-2 bg-zinc-700" />
-      <ChevronRight className="h-4 w-4 text-zinc-600" />
-      <span className="h-px w-2 bg-zinc-700" />
-    </div>
-  );
-}
-
-function ConnectorVertical() {
-  return (
-    <div
-      className="flex shrink-0 flex-col items-center py-0.5 sm:hidden"
-      aria-hidden
-    >
-      <span className="h-2 w-px bg-zinc-600" />
-      <ChevronDown className="h-4 w-4 text-zinc-600" />
-      <span className="h-2 w-px bg-zinc-600" />
-    </div>
-  );
-}
-
 export function WorkflowCard({ workflow }: WorkflowCardProps) {
   return (
     <motion.article
@@ -110,16 +84,35 @@ export function WorkflowCard({ workflow }: WorkflowCardProps) {
           ))}
         </div>
       )}
-      <div className="mt-4 flex flex-col gap-0 sm:mt-5 sm:flex-row sm:flex-wrap sm:gap-x-2 sm:gap-y-3">
-        {workflow.steps.flatMap((step, i) => [
-          <StepCard key={`step-${i}`} step={step} stepIndex={i} />,
-          ...(i < workflow.steps.length - 1
-            ? [
-                <ConnectorVertical key={`conn-v-${i}`} />,
-                <ConnectorHorizontal key={`conn-h-${i}`} />,
-              ]
-            : []),
-        ])}
+      {/* Mobile: vertical stack with chevron-down between steps */}
+      <div className="mt-4 flex flex-col gap-0 sm:hidden sm:mt-5">
+        {workflow.steps.map((step, i) => (
+          <div key={i} className="flex flex-col gap-0">
+            <StepCard step={step} stepIndex={i} />
+            {i < workflow.steps.length - 1 && (
+              <div className="flex justify-center py-0.5" aria-hidden>
+                <ChevronDown className="h-3.5 w-3.5 text-zinc-500" />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      {/* Desktop: horizontal flow; step+chevron grouped so wrap keeps pairs */}
+      <div className="mt-4 hidden flex-wrap items-center gap-x-1.5 gap-y-3 sm:mt-5 sm:flex">
+        {workflow.steps.map((step, i) => (
+          <div
+            key={i}
+            className="flex min-w-0 shrink-0 basis-auto items-center gap-x-1.5"
+          >
+            <StepCard step={step} stepIndex={i} />
+            {i < workflow.steps.length - 1 && (
+              <ChevronRight
+                className="h-3.5 w-3.5 shrink-0 text-zinc-500"
+                aria-hidden
+              />
+            )}
+          </div>
+        ))}
       </div>
     </motion.article>
   );

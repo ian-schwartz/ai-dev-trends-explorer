@@ -15,24 +15,20 @@ export function MiniWorkflow({ name, description, steps }: MiniWorkflowProps) {
       <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-zinc-400">
         {description}
       </p>
-      <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2.5 sm:gap-x-0 sm:gap-y-2">
+      <div className="mt-4 flex flex-wrap items-center gap-x-1.5 gap-y-2.5">
         {steps.map((step, i) => (
           <div
             key={i}
-            className="flex flex-wrap items-center gap-x-1.5 gap-y-2.5 sm:gap-x-0 sm:gap-y-2"
+            className="flex min-w-0 shrink-0 basis-auto items-center gap-x-1.5"
           >
-            <span className="min-w-0 rounded-lg border border-zinc-700/80 bg-zinc-800/70 px-2.5 py-1.5 text-xs font-medium text-zinc-300 shadow-sm sm:min-w-[4.5rem] sm:px-3">
+            <span className="min-w-[4.5rem] rounded-lg border border-zinc-700/80 bg-zinc-800/70 px-2.5 py-1.5 text-xs font-medium text-zinc-300 shadow-sm sm:min-w-0 sm:px-3">
               {step}
             </span>
             {i < steps.length - 1 && (
-              <span
-                className="flex shrink-0 items-center px-0.5 sm:px-1"
+              <ChevronRight
+                className="h-3.5 w-3.5 shrink-0 text-zinc-500"
                 aria-hidden
-              >
-                <span className="hidden h-px w-2 bg-zinc-600 sm:block" />
-                <ChevronRight className="h-4 w-4 text-zinc-600" />
-                <span className="hidden h-px w-2 bg-zinc-600 sm:block" />
-              </span>
+              />
             )}
           </div>
         ))}
