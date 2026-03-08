@@ -1,32 +1,16 @@
 import Link from "next/link";
+import { workflows } from "@/data/workflows";
 import { MiniWorkflow } from "@/components/workflows/MiniWorkflow";
 
-const PREVIEW_WORKFLOWS: {
-  name: string;
-  description: string;
-  steps: string[];
-}[] = [
-  {
-    name: "AI Pair Programming",
-    description:
-      "Iterative cycle of prompting for code, reviewing suggestions, and refactoring. Fits daily feature work and small fixes.",
-    steps: ["Prompt", "Generate", "Review", "Refactor"],
-  },
-  {
-    name: "Agent Loop",
-    description:
-      "Autonomous loop: set a goal, the agent plans, edits files, runs the app, and fixes errors until done or stuck.",
-    steps: ["Goal", "Plan", "Edit", "Run", "Fix"],
-  },
-  {
-    name: "UI-First Prototyping",
-    description:
-      "Start with generated UI, then refine layout, wire up mock data, and polish. Good for landing pages and dashboards.",
-    steps: ["Generate UI", "Refine", "Connect Data", "Polish"],
-  },
-];
+const PREVIEW_COUNT = 3;
 
 export function WorkflowPreviewSection() {
+  const previewWorkflows = workflows.slice(0, PREVIEW_COUNT).map((w) => ({
+    name: w.name,
+    description: w.description,
+    steps: w.steps.map((s) => s.title),
+  }));
+
   return (
     <section className="relative overflow-hidden border-b border-zinc-800/60 py-16 sm:py-20">
       {/* Very subtle emerald glow behind workflow cards */}
@@ -41,11 +25,11 @@ export function WorkflowPreviewSection() {
           Workflow preview
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-400">
-          Common AI development workflows: from pair programming to agent loops
-          and UI-first prototyping.
+          Practical AI-assisted development workflows: from pair programming and
+          agent loops to UI-first prototyping and refactor-and-validate.
         </p>
         <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>div:hover]:shadow-emerald-500/5">
-          {PREVIEW_WORKFLOWS.map((workflow) => (
+          {previewWorkflows.map((workflow) => (
             <MiniWorkflow
               key={workflow.name}
               name={workflow.name}

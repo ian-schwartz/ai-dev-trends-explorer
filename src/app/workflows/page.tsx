@@ -15,8 +15,8 @@ export default function WorkflowsPage() {
           Workflows
         </h1>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          Common AI development workflows: from pair programming and agent loops
-          to UI-first prototyping and refactor/test cycles.
+          Practical guidance for AI-assisted development: human-in-the-loop pair
+          programming, agent loops, UI-first prototyping, and refactor-and-validate.
         </p>
         <div className="mt-10 [&_article:hover]:shadow-emerald-500/5">
           <WorkflowGrid />
