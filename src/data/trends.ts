@@ -47,11 +47,10 @@ export const trends: TrendItem[] = [
   },
   {
     slug: "prompt-only-coding",
-    title: "Prompt-only coding without review",
+    title: "AI coding without human review",
     status: "overhyped",
     summary:
-      "Relying on AI output without review is risky for production. Best practice: treat suggestions as drafts and keep human review in the loop.",
+      "Skipping human review of AI-generated code increases risk in production. Treat AI output as draft material and keep review in the loop for important changes.",
     relatedTools: ["Cursor", "Claude Code", "Replit Ghostwriter", "GitHub Copilot"],
-    signalLabel: "Use with caution",
   },
 ];

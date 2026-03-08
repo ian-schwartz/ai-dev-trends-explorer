@@ -22,6 +22,13 @@ const statusStyles: Record<
   },
 };
 
+const statusLabels: Record<TrendStatus, string> = {
+  rising: "rising",
+  established: "established",
+  experimental: "experimental",
+  overhyped: "Use with caution",
+};
+
 interface TrendRadarCardProps {
   trend: TrendItem;
 }
@@ -34,14 +41,14 @@ export function TrendRadarCard({ trend }: TrendRadarCardProps) {
       className={`rounded-lg border bg-zinc-900/50 p-4 sm:p-5 ${styles.border} border-zinc-800/80 transition-colors hover:bg-zinc-900/70`}
       data-trend-slug={trend.slug}
     >
-      <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3 className="font-semibold tracking-tight text-foreground">
+      <div className="flex items-start justify-between gap-3">
+        <h3 className="min-w-0 flex-1 line-clamp-2 font-semibold tracking-tight text-foreground">
           {trend.title}
         </h3>
         <span
-          className={`shrink-0 rounded border px-2 py-0.5 text-xs font-medium ${styles.badge}`}
+          className={`shrink-0 whitespace-nowrap rounded border px-2 py-0.5 text-xs font-medium ${styles.badge}`}
         >
-          {trend.status}
+          {statusLabels[trend.status]}
         </span>
       </div>
       <p className="mt-2 text-sm leading-relaxed text-zinc-400">
