@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   Code2,
   Bot,
@@ -46,8 +47,6 @@ interface ToolCardProps {
 export function ToolCard({ tool }: ToolCardProps) {
   const Icon = categoryIcons[tool.category];
   const colors = categoryColors[tool.category];
-  const href = tool.website;
-  const isClickable = Boolean(href);
 
   const cardContent = (
     <>
@@ -101,27 +100,16 @@ export function ToolCard({ tool }: ToolCardProps) {
     </>
   );
 
-  const interactiveHover =
-    "hover:border-violet-500/30 hover:shadow-md hover:shadow-zinc-900/20 hover:-translate-y-0.5 cursor-pointer";
-  const baseClasses = `group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 text-left shadow-sm transition-all duration-200 ease-out ${isClickable ? interactiveHover : "hover:border-zinc-700"}`;
-
-  if (isClickable && href) {
-    return (
-      <a
-        href={href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={baseClasses}
-        data-tool-slug={tool.slug}
-      >
-        {cardContent}
-      </a>
-    );
-  }
+  const baseClasses =
+    "group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 text-left shadow-sm transition-all duration-200 ease-out hover:border-violet-500/30 hover:shadow-md hover:shadow-zinc-900/20 hover:-translate-y-0.5 cursor-pointer";
 
   return (
-    <article className={baseClasses} data-tool-slug={tool.slug}>
+    <Link
+      href={`/tools/${tool.slug}`}
+      className={baseClasses}
+      data-tool-slug={tool.slug}
+    >
       {cardContent}
-    </article>
+    </Link>
   );
 }
