@@ -28,8 +28,11 @@ export function HeroSection() {
           </span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-zinc-400 sm:text-xl">
-          Tools, workflows, and trends for AI-augmented development. Find the
-          right setup for your team.
+          Compare tools, understand workflows, and track trends shaping
+          AI-assisted software development.
+        </p>
+        <p className="mx-auto mt-3 text-sm text-zinc-500">
+          Tools directory • practical workflows • ecosystem signals
         </p>
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Link
