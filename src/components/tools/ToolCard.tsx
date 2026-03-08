@@ -1,13 +1,6 @@
 import Link from "next/link";
-import {
-  Code2,
-  Bot,
-  Wand2,
-  Sparkles,
-  Terminal,
-  type LucideIcon,
-} from "lucide-react";
 import type { ToolItem, ToolCategory, TrendLevel } from "@/types/tool";
+import { ToolLogo } from "./ToolLogo";
 
 const categoryLabels: Record<ToolCategory, string> = {
   "ai-ide": "AI IDE",
@@ -15,14 +8,6 @@ const categoryLabels: Record<ToolCategory, string> = {
   "ui-generator": "UI generator",
   "assistant": "Assistant",
   "terminal-tool": "Terminal tool",
-};
-
-const categoryIcons: Record<ToolCategory, LucideIcon> = {
-  "ai-ide": Code2,
-  "coding-agent": Bot,
-  "ui-generator": Wand2,
-  "assistant": Sparkles,
-  "terminal-tool": Terminal,
 };
 
 const categoryColors: Record<ToolCategory, { label: string; icon: string; tag: string }> = {
@@ -45,7 +30,6 @@ interface ToolCardProps {
 }
 
 export function ToolCard({ tool }: ToolCardProps) {
-  const Icon = categoryIcons[tool.category];
   const colors = categoryColors[tool.category];
 
   const cardContent = (
@@ -53,9 +37,12 @@ export function ToolCard({ tool }: ToolCardProps) {
       <div className="flex flex-wrap items-start justify-between gap-2">
         <div className="min-w-0 flex-1">
           <div className="flex items-center gap-2">
-            <Icon
-              className={`h-5 w-5 shrink-0 ${colors.icon}`}
-              aria-hidden
+            <ToolLogo
+              slug={tool.slug}
+              category={tool.category}
+              logoUrl={tool.logo}
+              size="sm"
+              name={tool.name}
             />
             <h3 className="font-semibold tracking-tight text-foreground">
               {tool.name}

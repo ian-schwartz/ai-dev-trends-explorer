@@ -33,6 +33,7 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://cursor.com",
     whyItMatters: "Widely used AI IDE. It sets expectations for in-editor completion and multi-file edits.",
+    logo: "https://cdn.simpleicons.org/cursor/white",
   },
   {
     slug: "claude-code",
@@ -64,6 +65,7 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://anthropic.com",
     whyItMatters: "Shows how assistants can live in the terminal and API alongside the editor.",
+    logo: "https://cdn.simpleicons.org/anthropic/white",
   },
   {
     slug: "codex",
@@ -95,6 +97,7 @@ export const tools: ToolItem[] = [
     terminalAccess: false,
     website: "https://openai.com",
     whyItMatters: "Powers Copilot and shapes how many developers experience AI completion.",
+    logo: "https://cdn.simpleicons.org/openai/white",
   },
   {
     slug: "v0",
@@ -126,6 +129,7 @@ export const tools: ToolItem[] = [
     terminalAccess: false,
     website: "https://v0.dev",
     whyItMatters: "Represents the shift from hand-coded UI to prompt-driven component generation.",
+    logo: "https://cdn.simpleicons.org/vercel/white",
   },
   {
     slug: "windsurf",
@@ -157,6 +161,7 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://codeium.com/windsurf",
     whyItMatters: "Another AI-native IDE option with a strong free tier.",
+    logo: "https://cdn.simpleicons.org/codeium/white",
   },
   {
     slug: "replit-ghostwriter",
@@ -188,6 +193,7 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://replit.com",
     whyItMatters: "Brings AI assistance into the browser and learning environments.",
+    logo: "https://cdn.simpleicons.org/replit/white",
   },
   {
     slug: "devin",
@@ -309,6 +315,7 @@ export const tools: ToolItem[] = [
     terminalAccess: false,
     website: "https://github.com/features/copilot",
     whyItMatters: "Defines the baseline for in-editor AI completion for many developers.",
+    logo: "https://cdn.simpleicons.org/github/white",
   },
   {
     slug: "zed",
@@ -339,6 +346,7 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://zed.dev",
     whyItMatters: "Offers a performance-first, native alternative to Electron-based AI IDEs.",
+    logo: "https://cdn.simpleicons.org/zed/white",
   },
   {
     slug: "tabnine",
@@ -369,6 +377,7 @@ export const tools: ToolItem[] = [
     terminalAccess: false,
     website: "https://www.tabnine.com",
     whyItMatters: "Appeals to teams that need privacy-preserving or on-prem AI completion.",
+    logo: "https://cdn.simpleicons.org/tabnine/white",
   },
   {
     slug: "aider",
@@ -429,6 +438,7 @@ export const tools: ToolItem[] = [
     terminalAccess: true,
     website: "https://www.warp.dev",
     whyItMatters: "Brings AI into the terminal for command discovery and productivity.",
+    logo: "https://cdn.simpleicons.org/warp/white",
   },
   {
     slug: "builder-io",
@@ -459,6 +469,7 @@ export const tools: ToolItem[] = [
     terminalAccess: false,
     website: "https://www.builder.io",
     whyItMatters: "Combines visual building with AI-generated code for content and marketing UIs.",
+    logo: "https://cdn.simpleicons.org/builderdotio/white",
   },
   {
     slug: "open-interpreter",

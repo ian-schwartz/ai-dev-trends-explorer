@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { tools } from "@/data/tools";
 import { trends } from "@/data/trends";
+import { ToolLogo } from "@/components/tools/ToolLogo";
 import type { ToolItem, ToolCategory, TrendLevel } from "@/types/tool";
 
 const categoryLabels: Record<ToolCategory, string> = {
@@ -92,6 +93,13 @@ export default async function ToolDetailPage({
         {/* Header */}
         <header className="mt-6 border-b border-zinc-800/80 pb-8">
           <div className="flex flex-wrap items-center gap-2">
+            <ToolLogo
+              slug={tool.slug}
+              category={tool.category}
+              logoUrl={tool.logo}
+              size="md"
+              name={tool.name}
+            />
             <span
               className={`inline-flex items-center gap-1.5 rounded border px-2.5 py-1 text-xs font-medium ${categoryColors[tool.category]}`}
             >

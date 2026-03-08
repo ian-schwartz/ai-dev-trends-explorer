@@ -27,4 +27,6 @@ export interface ToolItem {
   terminalAccess: boolean;
   website?: string;
   whyItMatters?: string;
+  logo?: string;
+  screenshot?: string;
 }
