@@ -102,8 +102,8 @@ export function ToolCard({ tool }: ToolCardProps) {
   );
 
   const interactiveHover =
-    "hover:border-violet-500/30 hover:shadow-md hover:shadow-violet-500/5 hover:-translate-y-0.5 cursor-pointer";
-  const baseClasses = `group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 text-left shadow-sm transition-all duration-200 ${isClickable ? interactiveHover : "hover:border-zinc-700"}`;
+    "hover:border-violet-500/30 hover:shadow-md hover:shadow-zinc-900/20 hover:-translate-y-0.5 cursor-pointer";
+  const baseClasses = `group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 text-left shadow-sm transition-all duration-200 ease-out ${isClickable ? interactiveHover : "hover:border-zinc-700"}`;
 
   if (isClickable && href) {
     return (

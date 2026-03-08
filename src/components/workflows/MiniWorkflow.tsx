@@ -8,7 +8,7 @@ interface MiniWorkflowProps {
 
 export function MiniWorkflow({ name, description, steps }: MiniWorkflowProps) {
   return (
-    <div className="flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 hover:border-violet-500/20 hover:bg-zinc-900/70 hover:shadow-md hover:shadow-violet-500/5 sm:p-5">
+    <div className="flex flex-col rounded-xl border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-violet-500/20 hover:bg-zinc-900/70 hover:shadow-md hover:shadow-zinc-900/20 sm:p-5">
       <h3 className="text-base font-semibold tracking-tight text-foreground">
         {name}
       </h3>

@@ -10,7 +10,7 @@ function StoryCard({ story }: { story: AIDevBuzzStory }) {
       href={story.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 transition-colors hover:border-zinc-600 hover:bg-zinc-900/80 sm:p-4"
+      className="group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-600 hover:bg-zinc-900/80 hover:shadow-md hover:shadow-zinc-900/20 sm:p-4"
     >
       <h3 className="font-medium leading-snug text-foreground transition-colors group-hover:text-violet-200">
         {story.title}
