@@ -44,7 +44,7 @@ export function WorkflowPreviewSection() {
           Common AI development workflows: from pair programming to agent loops
           and UI-first prototyping.
         </p>
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>div:hover]:shadow-emerald-500/5">
+        <div className="mt-8 grid gap-4 sm:mt-10 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 [&>div:hover]:shadow-emerald-500/5">
           {PREVIEW_WORKFLOWS.map((workflow) => (
             <MiniWorkflow
               key={workflow.name}
