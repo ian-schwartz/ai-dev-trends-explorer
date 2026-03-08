@@ -23,7 +23,7 @@ export function FeaturedToolsSection() {
         <div className="absolute left-1/2 top-1/2 h-[20rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue-500/8 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-blue-100">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
           Featured AI Development Tools
         </h2>
         <p className="mt-2 text-zinc-400">

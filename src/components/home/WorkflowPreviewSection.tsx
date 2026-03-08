@@ -21,7 +21,7 @@ export function WorkflowPreviewSection() {
         <div className="absolute left-1/2 top-1/2 h-[18rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-500/6 blur-3xl" />
       </div>
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="text-2xl font-semibold tracking-tight text-emerald-100">
+        <h2 className="text-2xl font-semibold tracking-tight text-foreground">
           Workflow preview
         </h2>
         <p className="mt-2 max-w-2xl text-zinc-400">
