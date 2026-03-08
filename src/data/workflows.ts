@@ -27,7 +27,7 @@ export const workflows: Workflow[] = [
     whenToUse:
       "Best for larger scoped tasks, multi-file updates, and implementation loops.",
     maturityLevel: "advanced",
-    relatedTools: ["Codex", "Claude Code", "OpenDevin", "OpenClaw"],
+    relatedTools: ["Codex", "Claude Code", "OpenHands", "OpenClaw"],
     steps: [
       { title: "Define Goal", description: "State the task or outcome clearly." },
       { title: "AI Plans Work", description: "Agent breaks the task into steps." },

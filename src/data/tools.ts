@@ -220,11 +220,11 @@ export const tools: ToolItem[] = [
     whyItMatters: "Pushes the boundary on autonomous coding agents.",
   },
   {
-    slug: "opendevin",
-    name: "OpenDevin",
+    slug: "openhands",
+    name: "OpenHands",
     category: "coding-agent",
     summary:
-      "Open-source autonomous coding agent inspired by Devin. Runs locally or in your infra; sandboxed execution and extensible workflow.",
+      "OpenHands (formerly OpenDevin). Open-source autonomous coding agent inspired by Devin. Runs locally or in your infra; sandboxed execution and extensible workflow.",
     bestFor: [
       "Self-hosted or air-gapped agent workflows",
       "Research and customization of agent behavior",
@@ -247,7 +247,7 @@ export const tools: ToolItem[] = [
     productionFriendly: false,
     repoAware: true,
     terminalAccess: true,
-    website: "https://opendevin.github.io",
+    website: "https://github.com/OpenHands/OpenHands",
     whyItMatters: "Open-source alternative for teams that need control and privacy.",
   },
   {

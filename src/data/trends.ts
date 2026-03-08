@@ -16,7 +16,7 @@ export const trends: TrendItem[] = [
     status: "rising",
     summary:
       "Agents that plan, edit, run, and fix in a loop are moving from research to early product. Best for bounded tasks; human review still recommended.",
-    relatedTools: ["Devin", "OpenDevin", "OpenClaw"],
+    relatedTools: ["Devin", "OpenHands", "OpenClaw"],
     signalLabel: "Early product",
   },
   {
@@ -42,7 +42,7 @@ export const trends: TrendItem[] = [
     status: "experimental",
     summary:
       "Agents that own full tasks end-to-end are in limited access. High variance; best for well-scoped work and teams that can supervise and correct.",
-    relatedTools: ["Devin", "OpenDevin", "OpenClaw"],
+    relatedTools: ["Devin", "OpenHands", "OpenClaw"],
     signalLabel: "Limited access",
   },
   {
