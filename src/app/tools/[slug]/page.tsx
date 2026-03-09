@@ -87,7 +87,7 @@ export default async function ToolDetailPage({
           className="inline-flex items-center gap-1.5 text-sm text-zinc-400 transition-colors duration-200 ease-out hover:text-foreground"
         >
           <ArrowLeft className="h-4 w-4" />
-          Tools directory
+          Tools Directory
         </Link>
 
         {/* Header */}
