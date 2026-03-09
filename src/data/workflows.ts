@@ -20,10 +20,10 @@ export const workflows: Workflow[] = [
     ],
   },
   {
-    slug: "agent-development-loop",
-    name: "Agent Development Loop",
+    slug: "two-agent-development-loop",
+    name: "Two-Agent Development Loop",
     description:
-      "A higher-autonomy workflow where the developer defines the goal and the agent plans, edits files, runs commands, and iterates.",
+      "A planning AI defines architecture and tasks while an execution agent edits files and runs commands.",
     whenToUse:
       "This workflow is best for larger scoped tasks, multi-file updates, and implementation loops.",
     maturityLevel: "advanced",
@@ -36,6 +36,41 @@ export const workflows: Workflow[] = [
       { title: "Fix Failures", description: "Address errors and adjust code." },
       { title: "Repeat Until Done", description: "Loop until goal is met or intervention needed." },
       { title: "Human Review", description: "Review and approve before merging." },
+    ],
+  },
+  {
+    slug: "spec-driven-agent-development",
+    name: "Spec-Driven Agent Development",
+    description:
+      "Define a clear spec up front; an agent implements it and you review and refine until the result is correct.",
+    whenToUse:
+      "This workflow is best when you want controlled scope and clear acceptance criteria before the agent edits code.",
+    maturityLevel: "intermediate",
+    relatedTools: ["Cursor", "Claude Code", "Codex"],
+    steps: [
+      { title: "Write Spec", description: "Define goal, files, constraints, and acceptance criteria." },
+      { title: "Agent Implements", description: "Agent edits files according to the spec." },
+      { title: "Review Output", description: "Human reviews changes and verifies correctness." },
+      { title: "Refine", description: "Agent improves implementation or fixes issues." },
+      { title: "Merge", description: "Commit or merge once validated." },
+    ],
+  },
+  {
+    slug: "pr-scoped-ai-development",
+    name: "PR-Scoped AI Development",
+    description:
+      "Keep changes small and PR-sized: define the task, give context, let the agent implement, then review and validate.",
+    whenToUse:
+      "This workflow is best for incremental changes, safe rollouts, and clear review boundaries.",
+    maturityLevel: "intermediate",
+    relatedTools: ["Cursor", "Claude Code", "GitHub Copilot"],
+    steps: [
+      { title: "Define Small Task", description: "Choose a pull-request sized change." },
+      { title: "Provide Context", description: "List files, constraints, and requirements." },
+      { title: "Agent Implements", description: "Agent performs focused edits." },
+      { title: "Review Diff", description: "Human verifies the change." },
+      { title: "Validate", description: "Run tests or build." },
+      { title: "Merge", description: "Commit the change." },
     ],
   },
   {
