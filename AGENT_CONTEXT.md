@@ -37,4 +37,4 @@ New features should improve developer usefulness and connect tools, workflows, a
 
 ## 7. Instructions for AI Agents
 
-**Before making changes**, review existing patterns in the codebase and follow established design and architectural conventions. See `AGENTS.md` for implementation guidelines and project structure.
+**Before making changes**, review existing patterns in the codebase and follow established design and architectural conventions. See `AGENTS.md` for implementation guidelines and project structure. AI agents modifying site content should follow CONTENT_STYLE.md.
