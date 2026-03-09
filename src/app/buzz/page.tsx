@@ -1,4 +1,10 @@
-import { ExternalLink, MessageCircle } from "lucide-react";
+import {
+  ArrowUp,
+  Clock,
+  ExternalLink,
+  Globe,
+  MessageCircle,
+} from "lucide-react";
 import { getBuzzPageStories } from "@/lib/hacker-news";
 
 const HN_ITEM_URL = (id: number) => `https://news.ycombinator.com/item?id=${id}`;
@@ -38,7 +44,7 @@ export default async function BuzzPage() {
             {stories.map((story) => (
               <li key={story.id}>
                 <article className="flex flex-col rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-600 hover:shadow-md hover:shadow-zinc-900/20 sm:p-5">
-                  <h2 className="font-semibold leading-snug text-foreground">
+                  <h2 className="text-lg font-semibold leading-snug text-foreground">
                     <a
                       href={story.url}
                       target="_blank"
@@ -48,13 +54,25 @@ export default async function BuzzPage() {
                       {story.title}
                     </a>
                   </h2>
-                  <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-500">
-                    {story.domain != null && (
-                      <span className="text-zinc-400">{story.domain}</span>
-                    )}
-                    <span>{story.score} pts</span>
-                    <span>{story.commentCount} comments</span>
-                    <span>{formatTimeAgo(story.time)}</span>
+                  {story.domain != null && (
+                    <p className="mt-1.5 flex items-center gap-1.5 text-xs text-zinc-400">
+                      <Globe className="h-3.5 w-3.5 shrink-0" />
+                      {story.domain}
+                    </p>
+                  )}
+                  <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-zinc-500">
+                    <span className="flex items-center gap-1.5">
+                      <ArrowUp className="h-3.5 w-3.5 shrink-0" />
+                      {story.score} pts
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <MessageCircle className="h-3.5 w-3.5 shrink-0" />
+                      {story.commentCount} comments
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5 shrink-0" />
+                      {formatTimeAgo(story.time)}
+                    </span>
                   </div>
                   <div className="mt-4 flex flex-wrap gap-2">
                     <a
