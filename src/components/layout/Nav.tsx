@@ -9,6 +9,7 @@ const navLinks = [
   { href: "/tools", label: "Tools" },
   { href: "/workflows", label: "Workflows" },
   { href: "/compare", label: "Compare" },
+  { href: "/buzz", label: "AI Dev Buzz" },
 ] as const;
 
 export function Nav() {

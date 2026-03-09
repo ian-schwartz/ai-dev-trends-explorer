@@ -33,6 +33,7 @@ interface HNItem {
   score?: number;
   by?: string;
   descendants?: number;
+  time?: number;
   deleted?: boolean;
   dead?: boolean;
 }
@@ -46,6 +47,36 @@ export interface AIDevBuzzStory {
   commentCount: number;
   author: string;
 }
+
+/** Buzz page story with time (unix) for display. */
+export interface BuzzPageStory extends AIDevBuzzStory {
+  time: number;
+}
+
+const BUZZ_PAGE_KEYWORDS = [
+  "ai",
+  "llm",
+  "agent",
+  "copilot",
+  "cursor",
+  "codex",
+  "claude",
+  "anthropic",
+  "openai",
+  "windsurf",
+  "v0",
+  "developer",
+  "coding",
+  "programming",
+  "repo",
+  "framework",
+  "model",
+  "inference",
+];
+
+const BUZZ_PAGE_TOP_N = 50;
+const BUZZ_PAGE_MAX_STORIES = 20;
+const BUZZ_PAGE_REVALIDATE = 600;
 
 const CACHE_REVALIDATE_SECONDS = 1800;
 
@@ -81,6 +112,58 @@ function toStory(s: HNItem & { title: string }): AIDevBuzzStory {
     commentCount: s.descendants ?? 0,
     author: s.by ?? "unknown",
   };
+}
+
+function matchesBuzzKeywords(title: string, url: string): boolean {
+  const lower = `${title} ${url}`.toLowerCase();
+  return BUZZ_PAGE_KEYWORDS.some((kw) => lower.includes(kw));
+}
+
+function toBuzzPageStory(s: HNItem & { title: string; time?: number }): BuzzPageStory {
+  return {
+    ...toStory(s),
+    time: s.time ?? 0,
+  };
+}
+
+export async function getBuzzPageStories(): Promise<BuzzPageStory[]> {
+  try {
+    const ids = (
+      await fetch(HN_TOP, { next: { revalidate: BUZZ_PAGE_REVALIDATE } }).then(
+        (res) => (res.ok ? res.json() as Promise<number[]> : Promise.reject(new Error("HN top failed")))
+      )
+    ).slice(0, BUZZ_PAGE_TOP_N);
+
+    const items = await Promise.all(
+      ids.map((id) =>
+        fetch(HN_ITEM(id), {
+          next: { revalidate: BUZZ_PAGE_REVALIDATE },
+        })
+          .then((res) => (res.ok ? res.json() as Promise<HNItem | null> : null))
+          .catch(() => null)
+      )
+    );
+
+    const stories = items.filter(
+      (item): item is HNItem & { title: string } =>
+        item != null &&
+        item.type === "story" &&
+        typeof item.title === "string" &&
+        !item.deleted &&
+        !item.dead
+    );
+
+    const relevant = stories
+      .filter((s) =>
+        matchesBuzzKeywords(s.title, s.url ?? "")
+      )
+      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
+      .slice(0, BUZZ_PAGE_MAX_STORIES);
+
+    return relevant.map(toBuzzPageStory);
+  } catch {
+    return [];
+  }
 }
 
 export async function getAIDevBuzzStories(): Promise<AIDevBuzzStory[]> {
