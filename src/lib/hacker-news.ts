@@ -53,30 +53,32 @@ export interface BuzzPageStory extends AIDevBuzzStory {
   time: number;
 }
 
-const BUZZ_PAGE_KEYWORDS = [
-  "ai",
-  "llm",
-  "agent",
-  "copilot",
-  "cursor",
-  "codex",
-  "claude",
-  "anthropic",
-  "openai",
-  "windsurf",
-  "v0",
-  "developer",
-  "coding",
-  "programming",
-  "repo",
-  "framework",
-  "model",
-  "inference",
-];
+/** Weighted keywords for buzz page: AI-specific terms 3, generic dev terms 1. */
+const BUZZ_PAGE_KEYWORD_WEIGHTS: Record<string, number> = {
+  ai: 3,
+  llm: 3,
+  agent: 3,
+  copilot: 3,
+  cursor: 3,
+  codex: 3,
+  claude: 3,
+  anthropic: 3,
+  openai: 3,
+  windsurf: 3,
+  v0: 3,
+  developer: 1,
+  coding: 1,
+  programming: 1,
+  repo: 1,
+  framework: 1,
+  model: 1,
+  inference: 1,
+};
 
 const BUZZ_PAGE_TOP_N = 50;
 const BUZZ_PAGE_MAX_STORIES = 20;
 const BUZZ_PAGE_REVALIDATE = 600;
+const BUZZ_PAGE_MIN_KEYWORD_SCORE = 2;
 
 const CACHE_REVALIDATE_SECONDS = 1800;
 
@@ -114,9 +116,13 @@ function toStory(s: HNItem & { title: string }): AIDevBuzzStory {
   };
 }
 
-function matchesBuzzKeywords(title: string, url: string): boolean {
+function getBuzzKeywordScore(title: string, url: string): number {
   const lower = `${title} ${url}`.toLowerCase();
-  return BUZZ_PAGE_KEYWORDS.some((kw) => lower.includes(kw));
+  let score = 0;
+  for (const [keyword, weight] of Object.entries(BUZZ_PAGE_KEYWORD_WEIGHTS)) {
+    if (lower.includes(keyword)) score += weight;
+  }
+  return score;
 }
 
 function toBuzzPageStory(s: HNItem & { title: string; time?: number }): BuzzPageStory {
@@ -153,14 +159,21 @@ export async function getBuzzPageStories(): Promise<BuzzPageStory[]> {
         !item.dead
     );
 
-    const relevant = stories
-      .filter((s) =>
-        matchesBuzzKeywords(s.title, s.url ?? "")
-      )
-      .sort((a, b) => (b.score ?? 0) - (a.score ?? 0))
-      .slice(0, BUZZ_PAGE_MAX_STORIES);
+    const withScore = stories
+      .map((s) => {
+        const keywordScore = getBuzzKeywordScore(s.title, s.url ?? "");
+        return { story: s, keywordScore, hnScore: s.score ?? 0 };
+      })
+      .filter(({ keywordScore }) => keywordScore >= BUZZ_PAGE_MIN_KEYWORD_SCORE)
+      .map(({ story, keywordScore, hnScore }) => ({
+        story,
+        storyScore: keywordScore * 10 + hnScore,
+      }))
+      .sort((a, b) => b.storyScore - a.storyScore)
+      .slice(0, BUZZ_PAGE_MAX_STORIES)
+      .map(({ story }) => story);
 
-    return relevant.map(toBuzzPageStory);
+    return withScore.map(toBuzzPageStory);
   } catch {
     return [];
   }
