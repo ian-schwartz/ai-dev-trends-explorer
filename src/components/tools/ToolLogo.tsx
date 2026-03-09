@@ -11,15 +11,6 @@ import {
 } from "lucide-react";
 import type { ToolCategory } from "@/types/tool";
 
-const CDN_BASE = "https://cdn.simpleicons.org";
-
-/** Tools that should use a parent/company logo when primary fails or is missing. */
-const LOGO_FALLBACK_MAP: Record<string, string> = {
-  codex: `${CDN_BASE}/openai/white`,
-  "github-copilot": `${CDN_BASE}/github/white`,
-  v0: `${CDN_BASE}/vercel/white`,
-};
-
 const categoryIcons: Record<ToolCategory, LucideIcon> = {
   "ai-ide": Code2,
   "coding-agent": Bot,
@@ -44,7 +35,6 @@ const sizeClasses: Record<Size, { box: string; icon: string }> = {
 };
 
 export interface ToolLogoProps {
-  /** Tool slug, used for fallback mapping (e.g. codex -> openai). */
   slug: string;
   category: ToolCategory;
   /** Primary logo URL from tool data. Optional. */
@@ -55,55 +45,41 @@ export interface ToolLogoProps {
   name?: string;
 }
 
-type Phase = "primary" | "fallback" | "loaded" | "icon";
+type Phase = "loading" | "loaded" | "icon";
 
 export function ToolLogo({
-  slug,
   category,
   logoUrl,
   size = "sm",
   name,
 }: ToolLogoProps) {
-  const fallbackUrl = LOGO_FALLBACK_MAP[slug];
-
-  const [phase, setPhase] = useState<Phase>(() => {
-    if (logoUrl) return "primary";
-    if (fallbackUrl) return "fallback";
-    return "icon";
-  });
+  const [phase, setPhase] = useState<Phase>(() =>
+    logoUrl ? "loading" : "icon"
+  );
   const [loadedUrl, setLoadedUrl] = useState<string | null>(null);
 
   useEffect(() => {
-    if (phase !== "primary" && phase !== "fallback") return;
-
-    const url = phase === "primary" ? (logoUrl ?? null) : fallbackUrl ?? null;
-    if (!url) return;
+    if (phase !== "loading" || !logoUrl) return;
 
     const img = new Image();
     img.onload = () => {
-      setLoadedUrl(url);
+      setLoadedUrl(logoUrl);
       setPhase("loaded");
     };
-    img.onerror = () => {
-      if (phase === "primary" && fallbackUrl) {
-        setPhase("fallback");
-      } else {
-        setPhase("icon");
-      }
-    };
-    img.src = url;
+    img.onerror = () => setPhase("icon");
+    img.src = logoUrl;
 
     return () => {
       img.onload = null;
       img.onerror = null;
       img.src = "";
     };
-  }, [phase, logoUrl, fallbackUrl]);
+  }, [phase, logoUrl]);
 
   const Icon = categoryIcons[category];
   const { box, icon } = sizeClasses[size];
 
-  if (phase === "icon" || (phase === "fallback" && !fallbackUrl)) {
+  if (phase === "icon") {
     return (
       <span
         className={`inline-flex shrink-0 items-center justify-center ${box} ${categoryIconClasses[category]}`}

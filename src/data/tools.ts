@@ -97,7 +97,7 @@ export const tools: ToolItem[] = [
     terminalAccess: false,
     website: "https://openai.com",
     whyItMatters: "Powers Copilot and shapes how many developers experience AI completion.",
-    logo: "https://cdn.simpleicons.org/openai/white",
+    logo: "/tools/codex/chatgpt.png",
   },
   {
     slug: "v0",
