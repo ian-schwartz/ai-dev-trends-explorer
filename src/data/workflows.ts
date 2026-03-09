@@ -42,7 +42,7 @@ export const workflows: Workflow[] = [
     slug: "spec-driven-agent-development",
     name: "Spec-Driven Agent Development",
     description:
-      "Define a clear spec up front; an agent implements it and you review and refine until the result is correct.",
+      "Define a clear spec up front. An agent implements it and you review and refine until the result is correct.",
     whenToUse:
       "This workflow is best when you want controlled scope and clear acceptance criteria before the agent edits code.",
     maturityLevel: "intermediate",
@@ -59,7 +59,7 @@ export const workflows: Workflow[] = [
     slug: "pr-scoped-ai-development",
     name: "PR-Scoped AI Development",
     description:
-      "Keep changes small and PR-sized: define the task, give context, let the agent implement, then review and validate.",
+      "Keep changes small and PR-sized. Define the task, give context, let the agent implement, then review and validate.",
     whenToUse:
       "This workflow is best for incremental changes, safe rollouts, and clear review boundaries.",
     maturityLevel: "intermediate",

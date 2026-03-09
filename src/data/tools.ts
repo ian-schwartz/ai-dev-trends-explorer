@@ -40,7 +40,7 @@ export const tools: ToolItem[] = [
     name: "Claude Code",
     category: "assistant",
     summary:
-      "Anthropic's coding-focused Claude experience: CLI and API for code generation, editing, and reasoning with long context.",
+      "Anthropic's coding-focused Claude experience. CLI and API for code generation, editing, and reasoning with long context.",
     bestFor: [
       "Scripts, one-off tasks, and terminal-centric workflows",
       "Long-context analysis and doc generation",
@@ -200,7 +200,7 @@ export const tools: ToolItem[] = [
     name: "Devin",
     category: "coding-agent",
     summary:
-      "Cognition's autonomous AI software engineer. Plans and executes multi-step tasks: debugging, feature work, and repo exploration.",
+      "Cognition's autonomous AI software engineer. Plans and executes multi-step tasks, including debugging, feature work, and repo exploration.",
     bestFor: [
       "Exploratory debugging and issue investigation",
       "Repetitive or well-scoped engineering tasks",

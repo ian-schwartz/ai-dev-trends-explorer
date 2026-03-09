@@ -43,7 +43,7 @@ export default function ToolsPage() {
           Tools Directory
         </h1>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          AI development tools: IDEs, coding agents, UI generators, and
+          AI development tools include IDEs, coding agents, UI generators, and
           assistants. Compare options and find what fits your workflow.
         </p>
         <div className="mt-10 space-y-6">
