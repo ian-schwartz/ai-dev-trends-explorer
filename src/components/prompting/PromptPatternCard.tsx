@@ -18,11 +18,14 @@ export function PromptPatternCard({
       <h3 className="text-lg font-semibold tracking-tight text-foreground">
         {title}
       </h3>
-      <p className="mt-2 text-sm leading-relaxed text-zinc-400">
-        {description}
+      <p className="mt-2 text-xs font-medium uppercase tracking-wider text-zinc-500">
+        When to use
       </p>
-      <p className="mt-2 text-xs font-medium text-zinc-500">
-        When to use: {whenToUse}
+      <p className="mt-0.5 text-sm leading-relaxed text-zinc-400">
+        {whenToUse}
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-zinc-400">
+        {description}
       </p>
       <div className="mt-4">
         <PromptBlock>{examplePrompt}</PromptBlock>
