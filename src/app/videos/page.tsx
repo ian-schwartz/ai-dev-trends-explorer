@@ -26,8 +26,7 @@ export default async function VideosPage() {
           Videos
         </h1>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          Recent videos from curated channels about AI coding tools, agents, and
-          developer workflows. Refreshed about every hour.
+          Curated videos about AI coding tools, agents, and developer workflows. Updated hourly.
         </p>
 
         {error != null && (

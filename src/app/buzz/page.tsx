@@ -13,8 +13,7 @@ export default async function BuzzPage() {
           Buzz
         </h1>
         <p className="mt-3 max-w-2xl text-zinc-400">
-          Recent Hacker News stories about AI-assisted development, coding tools,
-          and developer workflows. Refreshed about every 10 minutes.
+          Hacker News stories about AI-assisted development, coding tools, and developer workflows. Updated every 10 minutes.
         </p>
 
         {stories.length === 0 ? (
