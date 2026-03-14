@@ -1,3 +1,4 @@
+export { CopyablePromptBlock } from "./CopyablePromptBlock"
 export { PromptBlock } from "./PromptBlock"
 export { PromptPatternCard } from "./PromptPatternCard"
 export { SectionCard } from "./SectionCard"

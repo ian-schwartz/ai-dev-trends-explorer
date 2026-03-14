@@ -3,6 +3,7 @@ import {
   SectionHeading,
   SectionCard,
   PromptBlock,
+  CopyablePromptBlock,
   PromptPatternCard,
 } from "@/components/prompting"
 
@@ -163,7 +164,7 @@ export default function PromptingPage() {
             ))}
           </div>
           <div className="mt-6">
-            <PromptBlock>{executionBriefExample}</PromptBlock>
+            <CopyablePromptBlock>{executionBriefExample}</CopyablePromptBlock>
           </div>
         </SectionCard>
 
@@ -241,7 +242,7 @@ export default function PromptingPage() {
               <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-emerald-400/90">
                 Strong
               </p>
-              <PromptBlock>{structuredPrompt}</PromptBlock>
+              <CopyablePromptBlock>{structuredPrompt}</CopyablePromptBlock>
               <p className="mt-2 text-xs text-zinc-500">
                 Goal, scope, constraints, and acceptance are clear. The agent can deliver a focused change.
               </p>
@@ -314,7 +315,7 @@ export default function PromptingPage() {
               <p className="mt-1 text-sm text-zinc-500">
                 Use for new features or small enhancements with clear scope.
               </p>
-              <PromptBlock className="mt-3">{templateFeature}</PromptBlock>
+              <CopyablePromptBlock className="mt-3">{templateFeature}</CopyablePromptBlock>
             </div>
             <div>
               <h3 className="text-base font-semibold text-foreground">
@@ -323,7 +324,7 @@ export default function PromptingPage() {
               <p className="mt-1 text-sm text-zinc-500">
                 Use when restructuring code without changing behavior.
               </p>
-              <PromptBlock className="mt-3">{templateRefactor}</PromptBlock>
+              <CopyablePromptBlock className="mt-3">{templateRefactor}</CopyablePromptBlock>
             </div>
             <div>
               <h3 className="text-base font-semibold text-foreground">
@@ -332,7 +333,7 @@ export default function PromptingPage() {
               <p className="mt-1 text-sm text-zinc-500">
                 Use when describing a bug and asking for a fix or diagnosis.
               </p>
-              <PromptBlock className="mt-3">{templateDebug}</PromptBlock>
+              <CopyablePromptBlock className="mt-3">{templateDebug}</CopyablePromptBlock>
             </div>
           </div>
         </SectionCard>

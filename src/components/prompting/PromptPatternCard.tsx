@@ -1,4 +1,4 @@
-import { PromptBlock } from "./PromptBlock"
+import { CopyablePromptBlock } from "./CopyablePromptBlock"
 
 interface PromptPatternCardProps {
   title: string
@@ -28,7 +28,7 @@ export function PromptPatternCard({
         {description}
       </p>
       <div className="mt-4">
-        <PromptBlock>{examplePrompt}</PromptBlock>
+        <CopyablePromptBlock>{examplePrompt}</CopyablePromptBlock>
       </div>
     </article>
   )
