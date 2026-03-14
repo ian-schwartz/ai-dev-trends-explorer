@@ -2,8 +2,10 @@ import { youtubeChannels } from "@/data/youtube-channels"
 
 const REVALIDATE_SECONDS = 3600
 const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3"
-const VIDEOS_PER_CHANNEL = 4
+const VIDEOS_PER_CHANNEL = 6
 const MAX_VIDEOS_OUTPUT = 24
+/** Exclude Shorts and very short clips (under 90 seconds). */
+const MIN_DURATION_SECONDS = 90
 const TITLE_BOOST_KEYWORDS = [
   "cursor",
   "codex",
@@ -103,17 +105,27 @@ async function fetchYt<T>(
   return res.json() as Promise<T>
 }
 
-function parseIsoDuration(duration: string | undefined): string | null {
+/** Parse ISO 8601 duration to total seconds (e.g. PT1M30S -> 90). */
+function parseDurationToSeconds(duration: string | undefined): number | null {
   if (!duration) return null
   const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/)
   if (!match) return null
   const hours = parseInt(match[1] ?? "0", 10)
   const minutes = parseInt(match[2] ?? "0", 10)
   const seconds = parseInt(match[3] ?? "0", 10)
+  return hours * 3600 + minutes * 60 + seconds
+}
+
+function parseIsoDuration(duration: string | undefined): string | null {
+  const totalSeconds = parseDurationToSeconds(duration)
+  if (totalSeconds == null) return null
+  const hours = Math.floor(totalSeconds / 3600)
+  const minutes = Math.floor((totalSeconds % 3600) / 60)
+  const secs = totalSeconds % 60
   const parts: string[] = []
   if (hours > 0) parts.push(`${hours}:`)
   parts.push(
-    `${minutes.toString().padStart(hours > 0 ? 2 : 1, "0")}:${seconds.toString().padStart(2, "0")}`
+    `${minutes.toString().padStart(hours > 0 ? 2 : 1, "0")}:${secs.toString().padStart(2, "0")}`
   )
   return parts.join("")
 }
@@ -125,6 +137,12 @@ function scoreTitle(title: string): number {
     if (lower.includes(kw)) score += 1
   }
   return score
+}
+
+/** Lower number = higher trust (e.g. 1 is top tier). Used to boost ranking. */
+function getChannelPriorityBoost(priority: number | undefined): number {
+  if (priority == null) return 0
+  return Math.max(0, 3 - priority)
 }
 
 function getRelativeTime(isoDate: string): string {
@@ -152,6 +170,9 @@ export async function fetchCuratedVideos(): Promise<CuratedVideo[]> {
   }
 
   const channelIds = youtubeChannels.map((c) => c.id).join(",")
+  const priorityByChannelId = new Map(
+    youtubeChannels.map((c) => [c.id, c.priority])
+  )
 
   const channelsRes = await fetchYt<ChannelsListResponse>("/channels", {
     part: "contentDetails",
@@ -207,7 +228,15 @@ export async function fetchCuratedVideos(): Promise<CuratedVideo[]> {
               return Number.isNaN(n) ? null : n
             })()
           : null
-      const duration = parseIsoDuration(item.contentDetails?.duration)
+      const rawDuration = item.contentDetails?.duration
+      const durationSeconds = parseDurationToSeconds(rawDuration)
+      if (
+        durationSeconds != null &&
+        durationSeconds < MIN_DURATION_SECONDS
+      ) {
+        continue
+      }
+      const duration = parseIsoDuration(rawDuration)
       const channelId = snippet.channelId ?? ""
       videoDetails.push({
         id,
@@ -224,9 +253,12 @@ export async function fetchCuratedVideos(): Promise<CuratedVideo[]> {
   }
 
   videoDetails.sort((a, b) => {
-    const scoreA = scoreTitle(a.title)
-    const scoreB = scoreTitle(b.title)
-    if (scoreB !== scoreA) return scoreB - scoreA
+    const keywordA = scoreTitle(a.title)
+    const keywordB = scoreTitle(b.title)
+    if (keywordB !== keywordA) return keywordB - keywordA
+    const boostA = getChannelPriorityBoost(priorityByChannelId.get(a.channelId))
+    const boostB = getChannelPriorityBoost(priorityByChannelId.get(b.channelId))
+    if (boostB !== boostA) return boostB - boostA
     return (
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     )

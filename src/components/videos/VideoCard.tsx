@@ -35,7 +35,7 @@ export function VideoCard({ video }: VideoCardProps) {
             <div className="flex h-full w-full items-center justify-center text-zinc-600" />
           )}
           {video.duration != null && (
-            <span className="absolute bottom-1 right-1 rounded bg-black/80 px-1.5 py-0.5 text-xs font-medium text-zinc-200">
+            <span className="absolute bottom-1.5 right-1.5 rounded bg-black/85 px-2 py-0.5 font-mono text-xs font-medium tabular-nums text-zinc-200">
               {video.duration}
             </span>
           )}
@@ -52,11 +52,15 @@ export function VideoCard({ video }: VideoCardProps) {
             {video.title}
           </a>
         </h3>
-        <p className="mt-1.5 text-xs text-zinc-500">{video.channelName}</p>
-        <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-zinc-500">
+        <div className="mt-2 flex flex-wrap items-center gap-x-1.5 text-xs text-zinc-500">
+          <span>{video.channelName}</span>
+          <span aria-hidden> · </span>
           <span>{relativeTime}</span>
           {video.viewCount != null && (
-            <span>{formatViews(video.viewCount)}</span>
+            <>
+              <span aria-hidden> · </span>
+              <span>{formatViews(video.viewCount)}</span>
+            </>
           )}
         </div>
         <Link
