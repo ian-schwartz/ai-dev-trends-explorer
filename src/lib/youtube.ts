@@ -2,8 +2,10 @@ import { youtubeChannels } from "@/data/youtube-channels"
 
 const REVALIDATE_SECONDS = 3600
 const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3"
-const VIDEOS_PER_CHANNEL = 6
+const VIDEOS_PER_CHANNEL = 8
 const MAX_VIDEOS_OUTPUT = 24
+/** Max videos from a single channel in the final feed. */
+const MAX_VIDEOS_PER_CHANNEL = 3
 /** Exclude Shorts and very short clips (under 90 seconds). */
 const MIN_DURATION_SECONDS = 90
 const TITLE_BOOST_KEYWORDS = [
@@ -139,10 +141,18 @@ function scoreTitle(title: string): number {
   return score
 }
 
-/** Lower number = higher trust (e.g. 1 is top tier). Used to boost ranking. */
+/** Lower number = higher trust (e.g. 1 is top tier). Used in combined score. */
 function getChannelPriorityBoost(priority: number | undefined): number {
   if (priority == null) return 0
   return Math.max(0, 3 - priority)
+}
+
+/** Recency score: newer = higher. 0–30 scale over roughly 30 days. */
+function getRecencyScore(publishedAt: string): number {
+  const days = Math.floor(
+    (Date.now() - new Date(publishedAt).getTime()) / (1000 * 60 * 60 * 24)
+  )
+  return Math.max(0, 30 - Math.min(days, 30))
 }
 
 function getRelativeTime(isoDate: string): string {
@@ -255,16 +265,28 @@ export async function fetchCuratedVideos(): Promise<CuratedVideo[]> {
   videoDetails.sort((a, b) => {
     const keywordA = scoreTitle(a.title)
     const keywordB = scoreTitle(b.title)
-    if (keywordB !== keywordA) return keywordB - keywordA
     const boostA = getChannelPriorityBoost(priorityByChannelId.get(a.channelId))
     const boostB = getChannelPriorityBoost(priorityByChannelId.get(b.channelId))
-    if (boostB !== boostA) return boostB - boostA
+    const recencyA = getRecencyScore(a.publishedAt)
+    const recencyB = getRecencyScore(b.publishedAt)
+    const scoreA = keywordA * 10 + boostA * 4 + recencyA
+    const scoreB = keywordB * 10 + boostB * 4 + recencyB
+    if (scoreB !== scoreA) return scoreB - scoreA
     return (
       new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
     )
   })
 
-  return videoDetails.slice(0, MAX_VIDEOS_OUTPUT)
+  const result: CuratedVideo[] = []
+  const countByChannel = new Map<string, number>()
+  for (const video of videoDetails) {
+    if (result.length >= MAX_VIDEOS_OUTPUT) break
+    const n = countByChannel.get(video.channelId) ?? 0
+    if (n >= MAX_VIDEOS_PER_CHANNEL) continue
+    countByChannel.set(video.channelId, n + 1)
+    result.push(video)
+  }
+  return result
 }
 
 export { getRelativeTime }
