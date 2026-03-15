@@ -1,6 +1,8 @@
 import { fetchCuratedVideos, type CuratedVideo } from "@/lib/youtube"
 import { VideoGrid } from "@/components/videos/VideoGrid"
 
+// ISR: page is generated at build/first request and revalidated at most every hour so the feed updates.
+// Do not wrap fetchCuratedVideos in React cache() or the data will not refresh on revalidate.
 export const revalidate = 3600
 
 export default async function VideosPage() {

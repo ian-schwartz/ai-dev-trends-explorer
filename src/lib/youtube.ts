@@ -1,8 +1,17 @@
 import { youtubeChannels } from "@/data/youtube-channels"
 
+/**
+ * Videos refresh strategy:
+ * - All YouTube API calls go through fetchYt() which uses next: { revalidate: REVALIDATE_SECONDS }.
+ * - The /videos page sets export const revalidate = 3600 so the route is revalidated at most every hour.
+ * - When the page revalidates, it re-runs and fetchCuratedVideos() runs again; fetchYt() cache entries
+ *   have the same TTL, so new API responses are fetched. Do not add React cache() or other memoization
+ *   around fetchCuratedVideos, and do not use fetch() without next.revalidate for YouTube URLs.
+ */
 const REVALIDATE_SECONDS = 3600
 const YOUTUBE_API_BASE = "https://www.googleapis.com/youtube/v3"
-const VIDEOS_PER_CHANNEL = 8
+/** Candidate videos per channel (playlistItems.list maxResults). Slightly higher than needed so the pool stays fresh. */
+const VIDEOS_PER_CHANNEL = 10
 const MAX_VIDEOS_OUTPUT = 24
 /** Max videos from a single channel in the final feed. */
 const MAX_VIDEOS_PER_CHANNEL = 3
@@ -89,6 +98,10 @@ export interface CuratedVideo {
   url: string
 }
 
+/**
+ * All YouTube API requests must use this helper so they share the same revalidate TTL (1 hour).
+ * Using fetch() directly elsewhere would bypass this and can lead to indefinite or inconsistent caching.
+ */
 async function fetchYt<T>(
   path: string,
   params: Record<string, string>
@@ -262,6 +275,7 @@ export async function fetchCuratedVideos(): Promise<CuratedVideo[]> {
     }
   }
 
+  // Sort by relevance (keywords, channel priority, recency) then by publishedAt so newer videos rank higher.
   videoDetails.sort((a, b) => {
     const keywordA = scoreTitle(a.title)
     const keywordB = scoreTitle(b.title)
