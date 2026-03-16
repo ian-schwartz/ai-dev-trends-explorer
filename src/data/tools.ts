@@ -501,4 +501,100 @@ export const tools: ToolItem[] = [
     website: "https://openinterpreter.com",
     whyItMatters: "Lets LLMs run code in a controlled environment. It bridges chat and execution.",
   },
+  {
+    slug: "lovable",
+    name: "Lovable",
+    category: "ui-generator",
+    summary:
+      "AI-powered full-stack app builder that generates frontend, backend, and database structure from natural language prompts.",
+    bestFor: [
+      "Indie builders shipping full-stack apps quickly",
+      "Non-experts who want app scaffolds without setup",
+      "Rapid prototyping for product and growth ideas",
+    ],
+    strengths: [
+      "Generates full-stack applications from natural language prompts",
+      "Includes hosting, data, and auth so builders can focus on product",
+      "GitHub sync and code export for hand-off to traditional workflows",
+    ],
+    weaknesses: [
+      "Opinionated stack and hosting environment",
+      "Best suited to greenfield apps rather than complex legacy systems",
+      "Advanced customization often requires dropping into the generated code",
+    ],
+    tags: ["ai", "full-stack", "prototype", "builder", "app-generation"],
+    trend: "rising",
+    beginnerFriendly: true,
+    productionFriendly: false,
+    repoAware: true,
+    terminalAccess: false,
+    website: "https://www.lovable.so",
+    whyItMatters:
+      "Represents the shift toward prompt-driven full-stack application generation for indie builders and rapid prototypes.",
+    logo: "/tool-logos/lovable.svg",
+  },
+  {
+    slug: "continue",
+    name: "Continue",
+    category: "assistant",
+    summary:
+      "Open-source AI coding assistant extension for VS Code. Supports multiple LLM providers and local models with repo-aware editing and chat.",
+    bestFor: [
+      "Developers who want an open-source Copilot-style assistant",
+      "Teams that need control over models and infrastructure",
+      "Local or self-hosted AI workflows in VS Code",
+    ],
+    strengths: [
+      "Open source with active community and fast iteration",
+      "Supports many model providers and local models",
+      "Deep VS Code integration with repo-aware chat and edits",
+    ],
+    weaknesses: [
+      "Configuration required to pick and wire up models",
+      "VS Code focused. Other editors need separate workflows.",
+      "Feature set depends on the models and infra you connect",
+    ],
+    tags: ["open-source", "assistant", "vscode", "multi-model", "local"],
+    trend: "rising",
+    beginnerFriendly: true,
+    productionFriendly: true,
+    repoAware: true,
+    terminalAccess: false,
+    website: "https://www.continue.dev",
+    whyItMatters:
+      "A strong open-source alternative to proprietary assistants like Copilot, giving developers more control over models and infrastructure.",
+    logo: "/tool-logos/continue.svg",
+  },
+  {
+    slug: "bolt",
+    name: "Bolt",
+    category: "ui-generator",
+    summary:
+      "Browser-based AI builder that scaffolds full-stack applications and prototypes directly from prompts.",
+    bestFor: [
+      "Developers who want to go from idea to running app in the browser",
+      "Rapid prototyping and UX exploration without local setup",
+      "Teams experimenting with AI-generated full-stack scaffolds",
+    ],
+    strengths: [
+      "Runs entirely in the browser with instant dev environment",
+      "Generates full-stack scaffolds from natural language prompts",
+      "Tight loop between prompt, generated code, and live preview",
+    ],
+    weaknesses: [
+      "Browser-based workflows may not fit every production stack",
+      "Limited control over underlying infrastructure compared to custom setups",
+      "Best for prototypes; complex systems still need traditional engineering",
+    ],
+    tags: ["prototype", "builder", "full-stack", "ai-ui", "browser"],
+    trend: "rising",
+    beginnerFriendly: true,
+    productionFriendly: false,
+    repoAware: false,
+    terminalAccess: false,
+    website: "https://bolt.new",
+    whyItMatters:
+      "Shows how AI tools are collapsing the gap between idea and working application for rapid prototyping.",
+    logo: "/tool-logos/bolt.svg",
+  },
 ];
