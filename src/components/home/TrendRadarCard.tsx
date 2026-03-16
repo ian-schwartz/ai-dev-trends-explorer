@@ -38,7 +38,7 @@ export function TrendRadarCard({ trend }: TrendRadarCardProps) {
 
   return (
     <article
-      className={`rounded-lg border bg-zinc-900/50 p-4 sm:p-5 ${styles.border} border-zinc-800/80 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:bg-zinc-900/70 hover:shadow-md hover:shadow-zinc-900/20`}
+      className={`rounded-lg border bg-zinc-900/50 p-4 sm:p-5 ${styles.border} border-zinc-800/80 transition-all duration-200 ease-out hover:-translate-y-0.5 hover:border-zinc-700 hover:bg-zinc-900/70 hover:shadow-md hover:shadow-zinc-900/20`}
       data-trend-slug={trend.slug}
     >
       <div className="flex items-start justify-between gap-3">

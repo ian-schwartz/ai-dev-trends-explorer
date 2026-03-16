@@ -30,7 +30,7 @@ export function FeaturedToolsSection() {
           Some of the most popular tools shaping the AI-native development
           workflow.
         </p>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 [&>a:hover]:border-blue-500/25 [&>a:hover]:shadow-blue-500/10 [&>article:hover]:border-blue-500/25 [&>article:hover]:shadow-blue-500/10">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {featuredTools.map((tool) => (
             <ToolCard key={tool.slug} tool={tool} />
           ))}

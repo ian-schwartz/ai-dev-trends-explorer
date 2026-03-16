@@ -88,7 +88,7 @@ export function ToolCard({ tool }: ToolCardProps) {
   );
 
   const baseClasses =
-    "group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 text-left shadow-sm transition-all duration-200 ease-out hover:border-violet-500/30 hover:shadow-md hover:shadow-zinc-900/20 hover:-translate-y-0.5 cursor-pointer";
+    "group block rounded-lg border border-zinc-800 bg-zinc-900/50 p-5 text-left shadow-sm transition-all duration-200 ease-out hover:border-purple-500/40 hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1 cursor-pointer";
 
   return (
     <Link
