@@ -1,5 +1,6 @@
 import { fetchCuratedVideos, type CuratedVideo } from "@/lib/youtube"
 import { VideoGrid } from "@/components/videos/VideoGrid"
+import { SectionGlow } from "@/components/layout/SectionGlow"
 
 // ISR: page is generated at build/first request and revalidated at most every hour so the feed updates.
 // Do not wrap fetchCuratedVideos in React cache() or the data will not refresh on revalidate.
@@ -17,12 +18,7 @@ export default async function VideosPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-      >
-        <div className="absolute left-1/2 top-0 h-[24rem] w-[36rem] -translate-x-1/2 rounded-full bg-amber-500/6 blur-3xl" />
-      </div>
+      <SectionGlow colorClass="bg-amber-500/6" />
       <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
           Videos

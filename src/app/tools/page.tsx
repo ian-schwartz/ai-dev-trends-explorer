@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { tools } from "@/data/tools";
 import type { ToolItem } from "@/types/tool";
+import { SectionGlow } from "@/components/layout/SectionGlow";
 import { ToolFilters, type ToolFilterState } from "@/components/tools/ToolFilters";
 import { ToolGrid } from "@/components/tools/ToolGrid";
 
@@ -38,12 +39,7 @@ export default function ToolsPage() {
 
   return (
     <main className="relative min-h-screen overflow-hidden">
-      <div
-        className="pointer-events-none absolute inset-0"
-        aria-hidden
-      >
-        <div className="absolute left-1/2 top-0 h-[24rem] w-[36rem] -translate-x-1/2 rounded-full bg-blue-500/15 blur-3xl" />
-      </div>
+      <SectionGlow colorClass="bg-blue-500/6" />
       <div className="relative mx-auto max-w-6xl px-4 py-12 sm:px-6 sm:py-16">
         <h1 className="text-3xl font-bold tracking-tight text-foreground">
           Tools Directory
