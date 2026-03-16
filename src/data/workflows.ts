@@ -9,7 +9,7 @@ export const workflows: Workflow[] = [
     whenToUse:
       "This workflow is best for everyday feature work, bug fixes, and targeted improvements.",
     maturityLevel: "beginner",
-    relatedTools: ["Cursor", "Claude Code", "Codex"],
+    relatedTools: ["Cursor", "Claude Code", "Codex", "GitHub Copilot"],
     steps: [
       { title: "Define Feature", description: "Clarify the change or feature you want." },
       { title: "AI Drafts Changes", description: "AI suggests code edits or new code." },
