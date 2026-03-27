@@ -174,7 +174,7 @@ export default function PromptingPage() {
               Pick the pattern that fits your task. Each recipe shows when to use it, a short explanation, and an example.
             </p>
           </SectionHeading>
-          <div className="grid gap-4 sm:gap-6 sm:grid-cols-1 lg:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 sm:grid-cols-1 lg:grid-cols-2 [&>*]:min-w-0">
             <PromptPatternCard
               title="Feature Implementation"
               whenToUse="Adding a new feature, button, or API integration within existing code."

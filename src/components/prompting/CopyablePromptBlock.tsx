@@ -8,7 +8,7 @@ interface CopyablePromptBlockProps {
 }
 
 const blockClasses =
-  "rounded-lg border border-zinc-800 bg-zinc-900/80 px-4 py-3.5 pr-24 font-mono text-sm leading-relaxed text-zinc-300 overflow-x-auto whitespace-pre-wrap"
+  "w-full max-w-full rounded-lg border border-zinc-800 bg-zinc-900/80 px-4 py-3.5 pr-20 font-mono text-sm leading-relaxed text-zinc-300 whitespace-pre-wrap break-words [overflow-wrap:anywhere] sm:pr-24"
 
 export function CopyablePromptBlock({
   children,
@@ -28,7 +28,7 @@ export function CopyablePromptBlock({
   }, [children])
 
   return (
-    <div className={`relative ${className}`}>
+    <div className={`relative min-w-0 max-w-full ${className}`}>
       <pre className={blockClasses}>{children.trim()}</pre>
       <button
         type="button"

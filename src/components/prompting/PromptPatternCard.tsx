@@ -14,7 +14,7 @@ export function PromptPatternCard({
   examplePrompt,
 }: PromptPatternCardProps) {
   return (
-    <article className="rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 ease-out hover:border-violet-500/20 hover:shadow-md hover:shadow-zinc-900/20 sm:p-5">
+    <article className="min-w-0 rounded-lg border border-zinc-800 bg-zinc-900/50 p-4 shadow-sm transition-all duration-200 ease-out hover:border-violet-500/20 hover:shadow-md hover:shadow-zinc-900/20 sm:p-5">
       <h3 className="text-lg font-semibold tracking-tight text-foreground">
         {title}
       </h3>
