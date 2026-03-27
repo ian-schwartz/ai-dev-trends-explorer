@@ -25,7 +25,7 @@ export function Nav() {
           className="text-lg font-semibold tracking-tight text-foreground transition-colors duration-200 ease-out hover:text-violet-300"
           onClick={() => setMobileOpen(false)}
         >
-          AI Dev Trends Explorer
+          AI Dev Trends
         </Link>
 
         {/* Desktop: horizontal links */}

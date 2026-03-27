@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Dev Trends Explorer",
+  title: "AI Dev Trends",
   description: "Explore trends in AI and developer tools",
 };
 
