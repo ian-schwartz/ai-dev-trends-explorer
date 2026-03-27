@@ -33,7 +33,7 @@ export function CopyablePromptBlock({
       <button
         type="button"
         onClick={handleCopy}
-        className="absolute right-2 top-2 rounded border border-zinc-700 bg-zinc-800/90 px-2 py-1 text-xs font-medium text-zinc-400 transition-colors hover:border-zinc-600 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
+        className="absolute right-2 top-2 cursor-pointer rounded border border-zinc-700 bg-zinc-800/90 px-2 py-1 text-xs font-medium text-zinc-400 transition-colors hover:border-zinc-600 hover:text-zinc-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-900"
         aria-label={copied ? "Copied to clipboard" : "Copy to clipboard"}
       >
         {copied ? "Copied" : "Copy"}

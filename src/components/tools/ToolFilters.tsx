@@ -64,7 +64,7 @@ export function ToolFilters({ filters, onFiltersChange }: ToolFiltersProps) {
             key={value}
             type="button"
             onClick={() => update({ category: value })}
-            className={`rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
+            className={`cursor-pointer rounded-lg border px-3 py-1.5 text-sm font-medium transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950 ${
               filters.category === value
                 ? "border-violet-500/40 bg-violet-500/10 text-violet-200"
                 : "border-zinc-800 bg-zinc-900/80 text-zinc-400 hover:border-zinc-700 hover:text-zinc-300"

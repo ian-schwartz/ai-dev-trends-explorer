@@ -22,7 +22,7 @@ function formatTimeAgo(unixSeconds: number): string {
 }
 
 const buttonBase =
-  "inline-flex items-center gap-1.5 rounded-lg border border-zinc-600 bg-transparent px-3 py-1.5 text-xs font-medium transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950";
+  "inline-flex cursor-pointer items-center gap-1.5 rounded-lg border border-zinc-600 bg-transparent px-3 py-1.5 text-xs font-medium transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950";
 
 export function StoryCard({ story }: { story: BuzzPageStory }) {
   function openArticle(e: React.MouseEvent) {

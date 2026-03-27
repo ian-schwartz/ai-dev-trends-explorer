@@ -46,7 +46,7 @@ export function Nav() {
         <button
           type="button"
           onClick={() => setMobileOpen((o) => !o)}
-          className="flex h-10 w-10 items-center justify-center rounded-lg text-zinc-400 transition-colors duration-200 ease-out hover:bg-zinc-800 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
+          className="flex h-10 w-10 cursor-pointer items-center justify-center rounded-lg text-zinc-400 transition-colors duration-200 ease-out hover:bg-zinc-800 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background md:hidden"
           aria-expanded={mobileOpen}
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
